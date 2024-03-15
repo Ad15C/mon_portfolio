@@ -3,11 +3,19 @@ require('@rushstack/eslint-patch/modern-module-resolution')
 
 module.exports = {
   root: true,
-  'extends': [
+  env: {
+    es6: true,
+    node: true
+  },
+  extends: [
     'plugin:vue/vue3-essential',
     'eslint:recommended',
-    '@vue/eslint-config-prettier/skip-formatting'
+    '@vue/eslint-config-prettier/skip-formatting',
+    'google'
   ],
+  rules: {
+    quotes: ['error', 'double']
+  },
   parserOptions: {
     ecmaVersion: 'latest'
   }

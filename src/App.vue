@@ -9,7 +9,7 @@
   />
   <input type="text" v-model="yourName" /><br />
   <input type="email" v-model="yourMail" /><br />
-  <input type="text" v-model="yourMessage" /><br />
+  <input type="textarea" v-model="yourMessage" /><br />
   <button>Envoyer</button>
 </template>
 
