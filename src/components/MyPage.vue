@@ -18,6 +18,26 @@
           />
         </a>
       </div>
+      <div class="Cahier des Charges">
+        <a href="C:\Users\User\OneDrive\Bureau\CEF\Devoirs\cahier des charges.pdf">
+          <img
+            src="C:\Users\User\OneDrive\Bureau\CEF\Devoirs\cahier_charges.png"
+            id="Cahier des Charges"
+            width="100"
+            height="100"
+          />
+        </a>
+      </div>
+      <div class="Commentaire Dynamique">
+        <a href="https://github.com/Ad15C/mon_commentaire.git">
+          <img
+            src="C:\Users\User\OneDrive\Bureau\CEF\Devoirs\commentaire_dynamique.png"
+            id="Commentaire Dynamique"
+            width="100"
+            height="100"
+          />
+        </a>
+      </div>
     </section>
 
     <!--Section du Formulaire-->
@@ -31,4 +51,12 @@
 const props = defineProps(['aboutMe', 'yourName', 'yourMail', 'yourMessage'])
 </script>
 
-<style scoped></style>
+<style scoped>
+section {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  align-content: space-around;
+}
+</style>
