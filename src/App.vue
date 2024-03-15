@@ -2,15 +2,18 @@
   <MyHeader />
 
   <MyPage :about-me="aboutMe" :user="user" />
-  <input type="text" v-model="user.yourName" /><br />
-  <input type="email" v-model="user.yourMail" /><br />
-  <input type="textarea" v-model="user.yourMessage" /><br />
+  <input type="text" v-model.trim="user.yourName" /><br />
+  <input type="email" v-model.trim="user.yourMail" /><br />
+  <input type="textarea" v-model.trim="user.yourMessage" /><br />
   <button>Envoyer</button>
+
+  <MyFooter />
 </template>
 
 <script setup>
 import MyHeader from '@/components/MyHeader.vue'
 import MyPage from '@/components/MyPage.vue'
+import MyFooter from '@/components/MyFooter'
 import { reactive } from 'vue';
 
 const aboutMe = 'Ma mission consiste à aider mes clients à réaliser leurs projets'
@@ -22,7 +25,7 @@ const user = reactive(target: {
 })
 
 const display => () {
-  console.log (user);
+  console.log (user.yourName, user.yourMail, user.yourMessage);
 }
 </script>
 
