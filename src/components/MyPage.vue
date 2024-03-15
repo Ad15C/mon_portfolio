@@ -42,13 +42,13 @@
 
     <!--Section du Formulaire-->
     <section id="Form">
-      <p>{{ props.yourName }} {{ props.yourMail }} {{ props.yourMessage }}</p>
+      <p>{{ props.user.yourName }} {{ props.user.yourMail }} {{ props.user.yourMessage }}</p>
     </section>
   </main>
 </template>
 
 <script setup>
-const props = defineProps(['aboutMe', 'yourName', 'yourMail', 'yourMessage'])
+const props = defineProps(['aboutMe', 'user'])
 </script>
 
 <style scoped>
