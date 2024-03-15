@@ -1,27 +1,29 @@
 <template>
   <MyHeader />
 
-  <MyPage
-    :about-me="aboutMe"
-    :your-name="yourName"
-    :your-mail="yourMail"
-    :your-message="yourMessage"
-  />
-  <input type="text" v-model="yourName" /><br />
-  <input type="email" v-model="yourMail" /><br />
-  <input type="textarea" v-model="yourMessage" /><br />
+  <MyPage :about-me="aboutMe" :user="user" />
+  <input type="text" v-model="user.yourName" /><br />
+  <input type="email" v-model="user.yourMail" /><br />
+  <input type="textarea" v-model="user.yourMessage" /><br />
   <button>Envoyer</button>
 </template>
 
 <script setup>
 import MyHeader from '@/components/MyHeader.vue'
 import MyPage from '@/components/MyPage.vue'
+import { reactive } from 'vue';
 
 const aboutMe = 'Ma mission consiste à aider mes clients à réaliser leurs projets'
 
-const yourName = 'Veuillez indiquer votre Nom'
-const yourMail = 'Veuillez indiquer votre Mail'
-const yourMessage = 'Veuillez saisir votre message'
+const user = reactive(target: {
+  yourName = 'Veuillez indiquer votre Nom',
+  yourMail = 'Veuillez indiquer votre Mail',
+  yourMessage = 'Veuillez saisir votre message',
+})
+
+const display => () {
+  console.log (user);
+}
 </script>
 
 <style scoped>
