@@ -13,18 +13,18 @@
 <script setup>
 import MyHeader from '@/components/MyHeader.vue'
 import MyPage from '@/components/MyPage.vue'
-import MyFooter from '@/components/MyFooter'
+import MyFooter from '@/components/MyFooter.vue'
 import { reactive } from 'vue';
 
-const aboutMe = 'Ma mission consiste à aider mes clients à réaliser leurs projets'
+const aboutMe = 'Ma mission consiste à aider mes clients à réaliser leurs projets';
 
-const user = reactive(target: {
-  yourName = 'Veuillez indiquer votre Nom',
-  yourMail = 'Veuillez indiquer votre Mail',
-  yourMessage = 'Veuillez saisir votre message',
-})
+const user = reactive ({
+  yourName:'Veuillez indiquer votre Nom',
+  yourMail:'Veuillez indiquer votre Mail',
+  yourMessage: 'Veuillez saisir votre message',
+});
 
-const display => () {
+const display = 0 => {
   console.log (user.yourName, user.yourMail, user.yourMessage);
 }
 </script>
