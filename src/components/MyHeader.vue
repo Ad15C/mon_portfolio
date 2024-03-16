@@ -7,4 +7,14 @@
 
 <script setup></script>
 
-<style scoped></style>
+<style scoped>
+header {
+  background-color: brown;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-content: space-around;
+  width: 1000px;
+  height: 600px;
+}
+</style>

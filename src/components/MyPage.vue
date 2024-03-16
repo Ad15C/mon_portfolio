@@ -7,9 +7,7 @@
 
     <!--Présentation des Projets-->
     <section id="Projets">
-      <div class="titre">
-        <h4>Ci dessous, mes derniers Projets:</h4>
-      </div>
+      <h4>Ci dessous, mes derniers Projets:</h4>
 
       <div class="Mon_CV">
         <a href="https://github.com/Ad15C/Mon_cv.git">
@@ -55,9 +53,17 @@ const props = defineProps(['aboutMe', 'user'])
 </script>
 
 <style scoped>
+main {
+  background-color: aqua;
+  width: 1000px;
+}
+
 section {
-  background-color: blue;
   display: flex;
-  flex-direction: row;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: flex-start;
+  align-content: space-between;
 }
 </style>
