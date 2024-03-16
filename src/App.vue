@@ -31,20 +31,7 @@ const display = 0
 </script>
 
 <style scoped>
-main {
-  background-color: #e6e6e6;
-}
-
-section {
-  display: flex;
-  background-color: blue;
-}
-
-footer {
-  background-color: #e6e6e6;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  align-content: space-around;
+template {
+  background-color: green;
 }
 </style>
