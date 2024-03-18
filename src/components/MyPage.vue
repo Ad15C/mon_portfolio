@@ -50,14 +50,14 @@ const props = defineProps(['aboutMe', 'myProjects'])
 <style scoped>
 main {
   background-color: aqua;
-  width: 1000px;
-  display: flex;
-  flex-direction: column;
+  width: 1500px;
+  display: block;
 }
 
 div {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   justify-content: space-evenly;
 }
 </style>

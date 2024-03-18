@@ -15,7 +15,11 @@ header {
   justify-content: flex-start;
   align-items: center;
   align-content: space-around;
-  width: 1000px;
+  width: 1500px;
   height: 600px;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  margin-left: 0%;
+  margin-right: 0%;
 }
 </style>

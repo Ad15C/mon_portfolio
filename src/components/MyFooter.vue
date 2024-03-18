@@ -25,7 +25,7 @@ footer {
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
-  width: 1000px;
-  height: auto;
+  width: 1500px;
+  height: 100px;
 }
 </style>

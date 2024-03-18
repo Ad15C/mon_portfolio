@@ -1,18 +1,23 @@
 <template>
-  <form @submit.prevent="addInfo" id="myForm">
+  <form @submit.prevent="addInfo" id="myForm_1">
     <label for="lastName">Votre Nom:</label><br />
-    <input type="text" id="lastName" v-model.trim="user.lastName" /><br />
+    <input type="text" id="lastName" v-model.trim="user.lastName.value" /><br />
 
-    <label for="firstName">Votre Nom:</label><br />
-    <input type="text" id="firstName" v-model.trim="user.fisrtName" /><br />
+    <label for="firstName">Votre Prénom:</label><br />
+    <input type="text" id="firstName" v-model.trim="user.firstName.value" /><br />
 
-    <label for="mail">Votre Email:</label><br />
-    <input type="email" id="yourMail" v-model.trim="user.yourMail" /> <br />
+    <label for="yourMail">Votre Email:</label><br />
+    <input type="email" id="yourMail" v-model.trim="user.yourMail.value" /> <br />
 
-    <label for="message">Votre Message:</label><br />
-    <input type="text" id="yourMessage" v-model.trim="yourMessage" /><br />
+    <label for="yourMessages">Votre Message:</label><br />
+    <input
+      type="text"
+      name="yourMessages"
+      id="yourMessages"
+      v-model.trim="user.yourMessages.value"
+    /><br />
 
-    <button type="submit" @click="addInfo">Envoyer</button>
+    <button type="submit">Envoyer</button>
   </form>
 </template>
 
@@ -22,8 +27,8 @@ import { ref } from 'vue'
 const user = {
   lastName: ref('Veuillez indiquer votre nom'),
   firstName: ref('Veuillez indiquer votre Prénom'),
-  yourMail: ref('Vreuillez indiquer votre adresse Email'),
-  yourMessage: ref('Veuillez saisir votre demande')
+  yourMail: ref('Veuillez indiquer votre adresse Email'),
+  yourMessages: ref('Veuillez saisir votre demande')
 }
 
 const addInfo = function () {
@@ -33,7 +38,7 @@ const addInfo = function () {
     lastName,
     firstName,
     yourMail,
-    yourMessage,
+    yourMessages,
     addInfo
   }
 }
