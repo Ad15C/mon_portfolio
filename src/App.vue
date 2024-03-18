@@ -1,9 +1,8 @@
 <template>
   <MyHeader />
 
-  <MyPage :about-me="aboutMe" :my-projects="myProjects" />
-
-  <MyForm :add="saveInfo" />
+  <MyPage />
+  <MyForm />
 
   <MyFooter />
 </template>
@@ -17,14 +16,6 @@ import MyFooter from '@/components/MyFooter.vue'
 const aboutMe = 'Ma mission consiste à aider mes clients à réaliser leurs projets'
 
 const myProjects = 'Ci-dessous, vous trouverez les derniers projets réalisés dernièrement:'
-
-const saveInfo = function (data) {
-  console.log('App | saveInfo() | data', data)
-
-  return {
-    saveInfo
-  }
-}
 </script>
 
 <style scoped></style>
