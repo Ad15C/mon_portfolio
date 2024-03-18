@@ -16,31 +16,25 @@
   </form>
 </template>
 
-<script>
+<script setup>
 import { ref } from 'vue'
 
-export default {
-  setup(props, context) {
-    const user = {
-      lastName: ref('Veuillez indiquer votre nom'),
-      firstName: ref('Veuillez indiquer votre Prénom'),
-      yourMail: ref('Vreuillez indiquer votre adresse Email'),
-      yourMessage: ref('Veuillez saisir votre demande')
-    }
+const user = {
+  lastName: ref('Veuillez indiquer votre nom'),
+  firstName: ref('Veuillez indiquer votre Prénom'),
+  yourMail: ref('Vreuillez indiquer votre adresse Email'),
+  yourMessage: ref('Veuillez saisir votre demande')
+}
 
-    const addInfo = function () {
-      console.log('myForm | addInfo() | user', user.value), context.emit('add', user.value)
+const addInfo = function () {
+  console.log('myForm | addInfo() | user', user.value), (addInfo.value = '')
 
-      addInfo.value = ''
-
-      return {
-        lastName,
-        firstName,
-        yourMail,
-        yourMessage,
-        addInfo
-      }
-    }
+  return {
+    lastName,
+    firstName,
+    yourMail,
+    yourMessage,
+    addInfo
   }
 }
 </script>
