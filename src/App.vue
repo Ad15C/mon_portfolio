@@ -1,34 +1,29 @@
 <template>
   <MyHeader />
 
-  <MyPage :about-me="aboutMe" :my-projects="myProjects" :user="user" />
-  <input type="text" v-model.trim="user.yourName" @input="display" /><br />
-  <input type="email" v-model.trim="user.yourMail" /><br />
-  <input type="textarea" v-model.trim="user.yourMessage" /><br />
-  <button>Envoyer</button>
+  <MyPage :about-me="aboutMe" :my-projects="myProjects" />
+
+  <MyForm :add="saveInfo" />
 
   <MyFooter />
 </template>
 
 <script setup>
-import MyHeader from '@/components/MyHeader.vue'
-import MyPage from '@/components/MyPage.vue'
+import MyHeader from './components/MyHeader.vue'
+import MyPage from './components/MyPage.vue'
+import MyForm from './components/MyForm.vue'
 import MyFooter from '@/components/MyFooter.vue'
-import { reactive } from 'vue'
 
 const aboutMe = 'Ma mission consiste à aider mes clients à réaliser leurs projets'
 
-const myProjects = 'Ci-dessous, vous trouverez les derniers projets réalisés'
+const myProjects = 'Ci-dessous, vous trouverez les derniers projets réalisés dernièrement:'
 
-const user = reactive({
-  yourName: 'Veuillez indiquer votre Nom',
-  yourMail: 'Veuillez indiquer votre Mail',
-  yourMessage: 'Veuillez saisir votre message'
-})
+const saveInfo = function (data) {
+  console.log('App | saveInfo() | data', data)
 
-const display = 0
-{
-  console.log(user.yourName.value, user.yourMail.value, user.yourMessage.value)
+  return {
+    saveInfo
+  }
 }
 </script>
 
