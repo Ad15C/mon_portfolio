@@ -1,8 +1,8 @@
 <template>
   <MyHeader />
 
-  <MyPage :about-me="aboutMe" :user="user" />
-  <input type="text" v-model.trim="user.yourName" /><br />
+  <MyPage :about-me="aboutMe" :my-projects="myProjects" :user="user" />
+  <input type="text" v-model.trim="user.yourName" @input="display" /><br />
   <input type="email" v-model.trim="user.yourMail" /><br />
   <input type="textarea" v-model.trim="user.yourMessage" /><br />
   <button>Envoyer</button>
@@ -18,6 +18,8 @@ import { reactive } from 'vue'
 
 const aboutMe = 'Ma mission consiste à aider mes clients à réaliser leurs projets'
 
+const myProjects = 'Ci-dessous, vous trouverez les derniers projets réalisés'
+
 const user = reactive({
   yourName: 'Veuillez indiquer votre Nom',
   yourMail: 'Veuillez indiquer votre Mail',
@@ -26,12 +28,8 @@ const user = reactive({
 
 const display = 0
 {
-  console.log(user.yourName, user.yourMail, user.yourMessage)
+  console.log(user.yourName.value, user.yourMail.value, user.yourMessage.value)
 }
 </script>
 
-<style scoped>
-template {
-  background-color: green;
-}
-</style>
+<style scoped></style>
