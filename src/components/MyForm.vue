@@ -44,4 +44,8 @@ const addInfo = function () {
 }
 </script>
 
-<style scoped></style>
+<style scoped>
+form {
+  width: 1500px;
+}
+</style>
