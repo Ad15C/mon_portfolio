@@ -12,6 +12,7 @@ header {
   background-color: brown;
   display: flex;
   flex-direction: column;
+  justify-content: flex-start;
   align-items: center;
   align-content: space-around;
   width: 1000px;
