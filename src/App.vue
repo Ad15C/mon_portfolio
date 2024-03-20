@@ -1,11 +1,14 @@
 <template>
-  <MyHeader />
-
-  <MyPage :about-me="aboutMe" :my-projects="myProjects" />
-
-  <MyForm @add="saveInfos" />
-
-  <MyFooter />
+  <header>
+    <MyHeader />
+  </header>
+  <main>
+    <MyPage :about-me="aboutMe" :my-projects="myProjects" />
+    <MyForm />
+  </main>
+  <footer>
+    <MyFooter />
+  </footer>
 </template>
 
 <script setup>
@@ -26,16 +29,14 @@ const saveInfos = function (data) {
   infos.value = [...infos.value, { infos: data, id: Date.now() }]
   console.log('App | saveInfos() | infos.value', infos.value)
   return {
-    saveInfos
+    saveInfos,
+    infos
   }
 }
 </script>
 
 <style scoped>
 template {
-  width: 1500px;
-  height: auto;
   display: flex;
-  flex-wrap: wrap;
 }
 </style>

@@ -1,5 +1,13 @@
 <template>
-  <form @submit.prevent="addInfo" id="myForm_1">
+  <form @submit.prevent="validateInfo" id="myForm" method="post">
+    
+    <p v-if="errors.length">
+      <b>Please correct the following error(s):</b>
+      <ul>
+          <li v-for="error in errors">{{ error }}</li>
+      </ul>
+    </p>
+
     <label for="lastName">Votre Nom:</label><br />
     <input type="text" id="lastName" v-model.trim="user.lastName.value" /><br />
 
@@ -22,26 +30,50 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { ref} from 'vue'
 
 const user = {
-  lastName: ref('Veuillez indiquer votre nom'),
-  firstName: ref('Veuillez indiquer votre Prénom'),
-  yourMail: ref('Veuillez indiquer votre adresse Email'),
-  yourMessages: ref('Veuillez saisir votre demande')
+  lastName: ref(''),
+  firstName: ref(''),
+  yourMail: ref(''),
+  yourMessages: ref('')
 }
 
-const addInfo = function () {
-  console.log('myForm | addInfo() | user', user.value), (addInfo.value = '')
-
+data()
+{
   return {
-    lastName,
-    firstName,
-    yourMail,
-    yourMessages,
-    addInfo
+    error: [],
+    lastName: '',
+    firstName: '',
+    yourMail: '',
+    yourMessages: ''
   }
 }
+
+methods: {
+  validateInfo(e)
+  {
+    if (this.lastName | this.firstName | this.yourMail | this.yourMessages) {
+      return true
+    }
+    this.error = []
+    if (!lastName) {
+      this.errors.push('Veuiilez indiquer votre Nom')
+    }
+    if (!firstName) {
+      this.errors.push('Veuillez inqiquer votre Prénom')
+    }
+    if (!yourMail) {
+      this.errors.push('Veuillez indiquer votre Email')
+    }
+    if (!yourMessages) {
+      this.errors.psuh('Veuillez saisir votre message')
+    }
+    e.preventDefault()
+  }
+}
+
+
 </script>
 
 <style scoped>
