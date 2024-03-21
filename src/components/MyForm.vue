@@ -1,24 +1,25 @@
 <template>
-  <form @submit.prevent="validateInfo" id="myForm" method="post">
-    <p>{{ props.myContact }}</p>
+  <form @submit.prevent="validateForm" id="myForm" method="post">
+    <p>
+      Pour toutes informations, remplissez le formulaire et je reviendrai vers vous dés que
+      possisble.
+    </p>
     <br />
 
     <label for="lastName">Votre Nom:</label><br />
     <input type="text" id="lastName" v-model.trim="user.lastName" /><br />
 
-    <label for="firstName">Votre Prénom:</label><br />
+    <label for="firstName" id="firstName">Votre Prénom:</label><br />
     <input type="text" id="firstName" v-model.trim="user.firstName" /><br />
 
-    <label for="yourMail">Votre Email:</label><br />
-    <input type="email" id="yourMail" v-model.trim="user.yourMail" /> <br />
+    <label for="yourMail" id="yourMail">Votre Email:</label><br />
+    <input type="email" id="yourMail" v-model.trim="user.yourMail" /><br />
 
-    <label for="yourMessages">Votre Message:</label><br />
-    <input
-      type="textarea"
-      name="yourMessages"
-      id="yourMessages"
-      v-model.trim="user.yourMessages"
-    /><br />
+    <label for="yourMessages" id="yourMessages">Votre Message:</label><br />
+    <textarea v-model.trim="user.yourMessages"> </textarea><br />
+
+    <!-- error message -->
+    <div v-if="errorMessage">{{ errorMessage }}</div>
 
     <button type="submit">Envoyer</button>
   </form>
@@ -27,8 +28,7 @@
 <script setup>
 import { ref } from 'vue'
 
-const props = defineProps(['myContact'])
-
+//Champs du formulaire
 const user = ref({
   lastName: '',
   firstName: '',
@@ -36,27 +36,17 @@ const user = ref({
   yourMessages: ''
 })
 
+const errorMessage = 'Veuillez remplir les champs,merci.'
+
 const display = () => {
   console.log(user)
 }
-function validateInfo(e) {
-  if (this.lastName | this.firstName | this.yourMail | this.yourMessages) {
-    return true
+
+function validateForm(e) {
+  //on valide les champs
+  if (this.lastName || this.firstName || this.yourMail || this.yourMessages) {
+    errorMessage
   }
-  this.error = []
-  if (!lastName) {
-    this.errors.push('Veuiilez indiquer votre Nom')
-  }
-  if (!firstName) {
-    this.errors.push('Veuillez inqiquer votre Prénom')
-  }
-  if (!yourMail) {
-    this.errors.push('Veuillez indiquer votre Email')
-  }
-  if (!yourMessages) {
-    this.errors.psuh('Veuillez saisir votre message')
-  }
-  e.preventDefault()
 }
 </script>
 
