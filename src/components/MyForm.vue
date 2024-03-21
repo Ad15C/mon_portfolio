@@ -39,6 +39,25 @@ const user = ref({
 const display = () => {
   console.log(user)
 }
+function validateInfo(e) {
+  if (this.lastName | this.firstName | this.yourMail | this.yourMessages) {
+    return true
+  }
+  this.error = []
+  if (!lastName) {
+    this.errors.push('Veuiilez indiquer votre Nom')
+  }
+  if (!firstName) {
+    this.errors.push('Veuillez inqiquer votre Prénom')
+  }
+  if (!yourMail) {
+    this.errors.push('Veuillez indiquer votre Email')
+  }
+  if (!yourMessages) {
+    this.errors.psuh('Veuillez saisir votre message')
+  }
+  e.preventDefault()
+}
 </script>
 
 <style scoped>
