@@ -1,5 +1,8 @@
 <template>
   <form @submit.prevent="validateInfo" id="myForm" method="post">
+    <p>{{ props.myContact }}</p>
+    <br />
+
     <label for="lastName">Votre Nom:</label><br />
     <input type="text" id="lastName" v-model.trim="user.lastName" /><br />
 
@@ -24,11 +27,13 @@
 <script setup>
 import { ref } from 'vue'
 
-const user = ref(value, {
-  lastName: 'Veuillez indiquer votre Nom',
-  firstName: 'Veuillez indiquer votre Prénom',
-  yourMail: 'Veuillez indiquer votre Email',
-  yourMessages: 'Veuillez formuler votre message'
+const props = defineProps(['myContact'])
+
+const user = ref({
+  lastName: '',
+  firstName: '',
+  yourMail: '',
+  yourMessages: ''
 })
 
 const display = () => {
