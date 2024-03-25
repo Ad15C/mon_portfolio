@@ -1,18 +1,14 @@
 <template>
-  <body>
-    <header>
-      <MyHeader />
-    </header>
+  <MyHeader />
 
-    <main>
-      <MyPage :about-me="aboutMe" :my-projects="myProjects" />
-      <MyForm />
-    </main>
+  <MyPage :about-me="aboutMe" :my-projects="myProjects" />
+  <MyForm />
 
-    <footer>
-      <MyFooter />
-    </footer>
-  </body>
+  <MyFooter />
+
+  <RouterLink to="/">Home</RouterLink>|
+
+  <router-view></router-view>
 </template>
 
 <script setup>
@@ -26,8 +22,4 @@ const aboutMe = 'Ma mission consiste à aider mes clients à réaliser leurs pro
 const myProjects = 'Ci-dessous, vous trouverez les derniers projets réalisés dernièrement:'
 </script>
 
-<style scoped>
-body {
-  display: block;
-}
-</style>
+<style scoped></style>
