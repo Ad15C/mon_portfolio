@@ -1,7 +1,7 @@
 <template>
   <MyHeader />
 
-  <MyPage :about-me="aboutMe" :my-projects="myProjects" />
+  <MyPage :my-projects="myProjects" />
   <MyForm />
 
   <MyFooter />
@@ -16,8 +16,7 @@ import MyHeader from './components/MyHeader.vue'
 import MyPage from './components/MyPage.vue'
 import MyForm from './components/MyForm.vue'
 import MyFooter from './components/MyFooter.vue'
-
-const aboutMe = 'Ma mission consiste à aider mes clients à réaliser leurs projets.....'
+import { routerLink, routerView } from 'vue-router'
 
 const myProjects = 'Ci-dessous, vous trouverez les derniers projets réalisés dernièrement:'
 </script>
