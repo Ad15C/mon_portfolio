@@ -16,10 +16,13 @@
     <input type="email" id="yourMail" v-model.trim="user.yourMail" /> <br />
 
     <label for="yourMessages">Votre Message:</label><br />
-    <input type="textarea" id="yourMessages" v-model.trim="user.yourMessages" /><br />
+    <textarea id="yourMessages" v-model.trim="user.yourMessages" /><br />
 
     <!-- error message -->
-    <div v-if="errorMessage">{{ errorMessage }}</div>
+    <div v-if="errorMessage">{{ errorMessages }}}</div>
+    <!--success message-->
+    <div v-if="successMessage">{{ successMessage }}</div>
+
     <button type="submit">Envoyer</button>
   </form>
 </template>
@@ -32,17 +35,26 @@ const user = ref({
   lastName: '',
   firstName: '',
   yourMail: '',
-  yourMessages: ''
+  yourMessages: '',
+  errorMessages: false,
+  successMessage: ''
 })
 
-const display = () => {
-  console.log(user)
+function clearForm() {
+  document.getElementById('myForm').reset()
 }
+
 function validateInfo(e) {
   if (!this.lastName || !this.firstName || !this.yourMail || !this.yourMessages) {
-    errorMessages
+    this.errorMessage = true
+    this.successMessage = ''
+    return
+  } else {
+    console.log(user)
+    this.errorMessage = false
+    this.successMessage = 'Votre message a été envoyé avec succès'
+    clearForm //On Réinitiailise les champs
   }
-
   e.preventDefault()
 }
 </script>
