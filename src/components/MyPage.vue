@@ -2,7 +2,13 @@
   <main>
     <!--Section A Propos-->
     <section id="A_propos">
-      <p>{{ props.aboutMe }}</p>
+      <p>
+        Bienvenue sur mon Portfolio. Je m'appelle Adeline et j'aime tout ce qui se rapporte à la
+        technologie, et suis également passsionnée de sport.<br />
+        Mon but est de vous permettre à réaliser vos projets, que ce soit un site web, une
+        application mobile, etc.<br />
+        Je suis prête à relever les défis qui s'offre à moi.
+      </p>
     </section>
 
     <!--Présentation des Projets-->
@@ -44,7 +50,7 @@
 </template>
 
 <script setup>
-const props = defineProps(['aboutMe', 'myProjects'])
+const props = defineProps(['myProjects'])
 </script>
 
 <style scoped>
