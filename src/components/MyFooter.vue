@@ -10,7 +10,7 @@
     </div>
 
     <div class="MaJ">
-      <h5>Dernière mise à jour le <time datetime="2024-03-21">21 Mars 2024</time></h5>
+      <h5>Dernière mise à jour le <time datetime="2024-04-09">9 Avril 2024</time></h5>
     </div>
   </footer>
 </template>
