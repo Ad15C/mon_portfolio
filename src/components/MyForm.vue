@@ -63,5 +63,6 @@ function validateInfo(e) {
 <style scoped>
 form {
   width: 1500px;
+  background-color: green;
 }
 </style>
