@@ -1,11 +1,8 @@
 <template>
   <MyHeader />
 
-  <nav>
-    <RouterLink to="/">Accueil</RouterLink>
-  </nav>
-
   <MyPage :my-projects="myProjects" />
+
   <MyForm />
 
   <MyFooter />
@@ -25,8 +22,6 @@ const myProjects = 'Ci-dessous, vous trouverez les derniers projets réalisés d
 <style scoped>
 template {
   width: 1500px;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
+  height: auto;
 }
 </style>

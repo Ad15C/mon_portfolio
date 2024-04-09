@@ -3,12 +3,12 @@
     <!--Section A Propos-->
     <section id="A_propos">
       <p>
-        Bienvenue sur mon Portfolio. Je m'appelle Adeline et j'aime tout ce qui se rapporte à la
-        technologie, et suis également passsionnée de sport.<br />
-        Mon but est de vous permettre à réaliser vos projets, que ce soit un site web, une
-        application mobile, etc.<br />
+        Je m'appelle Adeline et j'aime tout ce qui se rapporte à la technologie, et suis également
+        passsionnée de sport. Mon but est de vous permettre à réaliser vos projets, que ce soit un
+        site web, une application mobile, etc.<br />
         Je suis prête à relever les défis qui s'offre à moi.
       </p>
+      <br />
     </section>
 
     <!--Présentation des Projets-->
@@ -18,15 +18,15 @@
 
       <div class="projets_recents">
         <div class="Mon_CV">
-          <a href="https://github.com/Ad15C/Mon_cv.git">
-            <img src="@/assets/cv.png" name="Mon CV" width="100" height="150" />
+          <a href="../assets/cv.png">
+            <img src="../assets/cv.png" name="Mon CV" width="100" height="150" />
           </a>
         </div>
 
         <div class="Cahier_Charges">
-          <a href="@/assets/cahier_des_charges.pdf">
+          <a href="../assets/cahier_des_charges.pdf">
             <img
-              src="@/assets/cahier_charges.png"
+              src="../assets/cahier_charges.png"
               id="Cahier des Charges"
               width="100"
               height="150"
@@ -37,7 +37,7 @@
         <div class="Commentaire_Dynamique">
           <a href="https://github.com/Ad15C/mon_commentaire.git">
             <img
-              src="@/assets/commentaire_dynamique.png"
+              src="../assets/commentaire_dynamique.png"
               id="Commentaire Dynamique"
               width="100"
               height="150"

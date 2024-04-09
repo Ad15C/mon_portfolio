@@ -1,11 +1,11 @@
 <template>
   <footer>
     <div class="Networks">
-      <a href="https://fr.linkedin.com/">
-        <img src="@/assets/linkedin.png" alt="Profil_LinkedIn" width="15" height="15" />
+      <a href="www.linkedin.com/in/adelinecanon">
+        <img src="@/assets/cv.png" alt="Profil_LinkedIn" width="15" height="15" />
       </a>
       <a href="https://github.com/Ad15C">
-        <img src="@/assets/github.png" alt="Profil_GitHub" width="15" height="15" />
+        <img src="../assets/signe-github.png" alt="Profil_GitHub" width="15" height="15" />
       </a>
     </div>
 

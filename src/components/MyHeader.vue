@@ -1,6 +1,6 @@
 <template>
   <header>
-    <img alt="logo" class="logo" src="/src/assets/Logo_AC.png" />
+    <img alt="logo" class="logo" src="../assets/Logo_AC.png" />
     <h1>Bienvenue sur mon Portfolio</h1>
   </header>
 </template>
@@ -21,5 +21,9 @@ header {
   padding-bottom: 40px;
   margin-left: 0%;
   margin-right: 0%;
+}
+
+.logo {
+  height: 150px;
 }
 </style>
