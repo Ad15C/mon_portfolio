@@ -1,6 +1,10 @@
 <template>
   <MyHeader />
 
+  <nav>
+    <RouterLink to="/">Accueil</RouterLink>
+  </nav>
+
   <MyPage :my-projects="myProjects" />
 
   <MyForm />
