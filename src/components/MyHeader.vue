@@ -16,7 +16,7 @@ header {
   align-items: center;
   align-content: space-around;
   width: 1500px;
-  height: 600px;
+  height: 300px;
   padding-top: 40px;
   padding-bottom: 40px;
   margin-left: 0%;

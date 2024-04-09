@@ -19,7 +19,7 @@
     <textarea id="yourMessages" v-model.trim="user.yourMessages" /><br />
 
     <!-- error message -->
-    <div v-if="errorMessage">{{ errorMessages }}}</div>
+    <div v-if="errorMessage">{{ errorMessages }}</div>
     <!--success message-->
     <div v-if="successMessage">{{ successMessage }}</div>
 
@@ -45,17 +45,18 @@ function clearForm() {
 }
 
 function validateInfo(e) {
+  e.preventDefault()
+
   if (!this.lastName || !this.firstName || !this.yourMail || !this.yourMessages) {
-    this.errorMessage = true
+    this.errorMessages = true
     this.successMessage = ''
     return
   } else {
     console.log(user)
-    this.errorMessage = false
+    this.errorMessages = false
     this.successMessage = 'Votre message a été envoyé avec succès'
     clearForm //On Réinitiailise les champs
   }
-  e.preventDefault()
 }
 </script>
 
