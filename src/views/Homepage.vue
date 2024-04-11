@@ -24,14 +24,12 @@
         </div>
 
         <div class="Cahier_Charges">
-          <a href="../assets/cahier_des_charges.pdf">
-            <img
-              src="../assets/cahier_charges.png"
-              id="Cahier des Charges"
-              width="100"
-              height="150"
-            />
-          </a>
+          <img
+            src="../assets/cahier_charges.png"
+            id="Cahier des Charges"
+            width="100"
+            height="150"
+          />
         </div>
 
         <div class="Commentaire_Dynamique">
@@ -56,16 +54,17 @@
       <br />
 
       <label for="lastName">Votre Nom:</label><br />
-      <input type="text" id="lastName" v-model.trim="user.lastName" /><br />
+      <input type="text" id="lastName" v-model.trim="user.lastName" required /><br />
 
       <label for="firstName">Votre Prénom:</label><br />
-      <input type="text" id="firstName" v-model.trim="user.firstName" /><br />
+      <input type="text" id="firstName" v-model.trim="user.firstName" required /><br />
 
       <label for="yourMail">Votre Email:</label><br />
-      <input type="email" id="yourMail" v-model.trim="user.yourMail" /> <br />
+      <input type="email" id="yourMail" v-model.trim="user.yourMail" required />
+      <br />
 
       <label for="yourMessages">Votre Message:</label><br />
-      <textarea id="yourMessages" v-model.trim="user.yourMessages" /><br />
+      <textarea id="yourMessages" v-model.trim="user.yourMessages" required /><br />
 
       <!-- error message -->
       <div v-if="errorMessage">{{ errorMessages }}</div>
@@ -82,7 +81,7 @@
 import { ref } from 'vue'
 import { errorMessages } from 'vue/compiler-sfc'
 
-const user = ref({
+let user = ref({
   lastName: '',
   firstName: '',
   yourMail: '',
@@ -90,10 +89,6 @@ const user = ref({
   errorMessages: false,
   successMessage: ''
 })
-
-function clearForm() {
-  document.getElementById('myForm').reset()
-}
 
 function validateInfo(e) {
   e.preventDefault()
@@ -106,11 +101,10 @@ function validateInfo(e) {
     console.log(user)
     this.errorMessages = false
     this.successMessage = 'Votre message a été envoyé avec succès'
-    clearForm //On Réinitiailise les champs
   }
+  //Réinitialise les champs du formulaire
+  ;(this.lastName = ''), (this.firstName = ''), (this.yourMail = ''), (this.yourMessages = '')
 }
-
-const props = defineProps(['myProjects'])
 </script>
 
 <style scoped>
@@ -125,5 +119,55 @@ div {
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-evenly;
+}
+
+form {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+}
+
+input[type='text'],
+select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type='email'],
+select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+textarea {
+  height: 150px;
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+button {
+  width: 100%;
+  background-color: green;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
 }
 </style>

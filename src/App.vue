@@ -1,10 +1,8 @@
 <template>
   <MyHeader />
-
-  <nav>
-    <RouterLink to="/">Accueil</RouterLink>
-  </nav>
+  <RouterLink to="Accueil">Accueil</RouterLink>
   <RouterView />
+
   <MyFooter />
 </template>
 
@@ -16,6 +14,5 @@ import MyFooter from './components/MyFooter.vue'
 <style scoped>
 template {
   width: 1500px;
-  height: auto;
 }
 </style>
