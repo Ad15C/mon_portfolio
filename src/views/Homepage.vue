@@ -13,7 +13,7 @@
 
     <!--Présentation des Projets-->
     <section id="Projets">
-      <p>Ci-dessous, vous trouverez les derniers projets réalisés dernièrement:'</p>
+      <p>Ci-dessous, vous trouverez les derniers projets réalisés dernièrement:</p>
       <br />
 
       <div class="projets_recents">
@@ -24,12 +24,14 @@
         </div>
 
         <div class="Cahier_Charges">
-          <img
-            src="../assets/cahier_charges.png"
-            id="Cahier des Charges"
-            width="100"
-            height="150"
-          />
+          <a href="../assets/cahier_des_charges.pdf">
+            <img
+              src="../assets/cahier_charges.png"
+              id="Cahier des Charges"
+              width="100"
+              height="150"
+            />
+          </a>
         </div>
 
         <div class="Commentaire_Dynamique">
@@ -47,10 +49,8 @@
 
     <!--Formulaire de contact-->
     <form @submit.prevent="validateInfo" id="myForm" method="post">
-      <p>
-        Pour toutes informations, remplissez le formulaire ci-dessous. Je reviendrai vers vous dés
-        que possible.
-      </p>
+      <h3>Pour toutes informations, remplissez le formulaire ci-dessous.</h3>
+
       <br />
 
       <label for="lastName">Votre Nom:</label><br />
@@ -101,6 +101,7 @@ function validateInfo(e) {
     console.log(user)
     this.errorMessages = false
     this.successMessage = 'Votre message a été envoyé avec succès'
+    SubmitEvent
   }
   //Réinitialise les champs du formulaire
   ;(this.lastName = ''), (this.firstName = ''), (this.yourMail = ''), (this.yourMessages = '')
@@ -122,6 +123,12 @@ div {
 }
 
 form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+
   border-radius: 5px;
   background-color: #f2f2f2;
   padding: 20px;
@@ -161,12 +168,12 @@ textarea {
 }
 
 button {
-  width: 100%;
-  background-color: green;
-  color: white;
-  padding: 14px 20px;
-  margin: 8px 0;
+  display: inline-block;
+  background-color: #172432;
   border: none;
+  color: #ddd;
+  padding: 12px 20px;
+  margin: 8px 0;
   border-radius: 4px;
   cursor: pointer;
 }
