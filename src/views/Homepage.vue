@@ -48,7 +48,7 @@
     </section>
 
     <!--Formulaire de contact-->
-    <form @submit.prevent="validateInfo" id="myForm" method="post">
+    <form name="myForm" onsubmit="return validateForm()" method="post">
       <h3>Pour toutes informations, remplissez le formulaire ci-dessous.</h3>
 
       <br />
@@ -100,8 +100,9 @@ function validateInfo(e) {
   } else {
     this.errorMessages = false
     this.successMessage = 'Votre message a été envoyé avec succès'
-    return true
+    SubmitEvent
   }
+
   //Réinitialise les champs du formulaire
   ;(this.lastName = ''), (this.firstName = ''), (this.yourMail = ''), (this.yourMessages = '')
 }
