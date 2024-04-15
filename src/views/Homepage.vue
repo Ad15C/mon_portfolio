@@ -77,7 +77,6 @@
 
 <script setup>
 import { ref } from 'vue'
-import { errorMessages } from 'vue/compiler-sfc'
 
 let user = ref({
   lastName: '',
