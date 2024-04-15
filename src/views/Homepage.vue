@@ -48,7 +48,7 @@
     </section>
 
     <!--Formulaire de contact-->
-    <form name="myForm" onsubmit="return validateForm()" method="post">
+    <form @submit.prevent="validateInfo" id="myForm" method="post">
       <h3>Pour toutes informations, remplissez le formulaire ci-dessous.</h3>
 
       <br />
@@ -66,10 +66,8 @@
       <label for="yourMessages">Votre Message:</label><br />
       <textarea id="yourMessages" v-model.trim="user.yourMessages" required /><br />
 
-      <!-- error message -->
+      <!-- Affichage des messages d'erreur ou de succès-->
       <div v-if="errorMessages">Veuillez remplir tous les champs</div>
-
-      <!--success message-->
       <div v-if="successMessage">{{ successMessage }}</div>
 
       <button type="submit">Envoyer</button>
@@ -85,26 +83,35 @@ let user = ref({
   lastName: '',
   firstName: '',
   yourMail: '',
-  yourMessages: '',
-  errorMessages: false,
-  successMessage: ''
+  yourMessages: ''
 })
 
-function validateInfo(e) {
-  e.preventDefault()
+let errorMessages = ref(false)
+let successMessage = ref('')
 
-  if (!this.lastName || !this.firstName || !this.yourMail || !this.yourMessages) {
-    this.errorMessages = true
-    this.successMessage = ''
-    return
+//Fonction pour valider les Informations du Formulaire de Contact
+function validateInfo() {
+  if (
+    !user.value.lastName ||
+    !user.value.firstName ||
+    !user.value.yourMail ||
+    !user.value.yourMessages
+  ) {
+    errorMessages = true
+    successMessage = ''
   } else {
-    this.errorMessages = false
-    this.successMessage = 'Votre message a été envoyé avec succès'
-    SubmitEvent
+    errorMessages = false
+    successMessage = 'Votre message a été envoyé avec succès'
   }
 
-  //Réinitialise les champs du formulaire
-  ;(this.lastName = ''), (this.firstName = ''), (this.yourMail = ''), (this.yourMessages = '')
+  //Réinitialisation des champs du formulaire
+  setTimeout(() => {
+    ;(user.value.lastName = ''),
+      (user.value.firstName = ''),
+      (user.value.yourMail = ''),
+      (user.value.yourMessages = ''),
+      (successMessage.value = '') //Effacer le message après un court délai
+  }, 2000)
 }
 </script>
 
