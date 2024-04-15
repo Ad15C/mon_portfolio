@@ -67,7 +67,7 @@
       <textarea id="yourMessages" v-model.trim="user.yourMessages" required /><br />
 
       <!-- error message -->
-      <div v-if="errorMessage">{{ errorMessages }}</div>
+      <div v-if="errorMessages">Veuillez remplir tous les champs</div>
 
       <!--success message-->
       <div v-if="successMessage">{{ successMessage }}</div>
@@ -98,10 +98,9 @@ function validateInfo(e) {
     this.successMessage = ''
     return
   } else {
-    console.log(user)
     this.errorMessages = false
     this.successMessage = 'Votre message a été envoyé avec succès'
-    SubmitEvent
+    return true
   }
   //Réinitialise les champs du formulaire
   ;(this.lastName = ''), (this.firstName = ''), (this.yourMail = ''), (this.yourMessages = '')
