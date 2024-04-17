@@ -1,9 +1,14 @@
 <template>
-  <MyHeader />
-  <RouterLink to="Accueil">Accueil</RouterLink>
-  <RouterView />
+  <main>
+    <MyHeader />
+    <nav>
+      <RouterLink to="Accueil">Accueil</RouterLink>
+      <RouterLink to="Mes Projets">Mes Projets</RouterLink>
+    </nav>
+    <RouterView />
 
-  <MyFooter />
+    <MyFooter />
+  </main>
 </template>
 
 <script setup>
@@ -15,5 +20,17 @@ import MyFooter from './components/MyFooter.vue'
 <style scoped>
 template {
   width: 1500px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
+nav {
+  height: 50px;
+  word-spacing: 4%;
+  display: flex;
+  flex-direction: row;
+  background-color: pink;
 }
 </style>
