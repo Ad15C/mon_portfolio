@@ -19,8 +19,7 @@ header {
   height: 300px;
   padding-top: 40px;
   padding-bottom: 40px;
-  margin-left: 0%;
-  margin-right: 0%;
+  margin: 0px;
 }
 
 .logo {
