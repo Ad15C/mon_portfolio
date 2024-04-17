@@ -72,15 +72,15 @@
     <form @submit.prevent="validateInfo" id="myForm" method="post">
       <h3>Pour toutes informations, remplissez le formulaire ci-dessous.</h3>
 
-      <br />
+      <br /><br />
 
-      <label for="lastName">Votre Nom:</label><br />
+      <label for="lastName">Votre Nom:</label>
       <input type="text" id="lastName" v-model.trim="user.lastName" required /><br />
 
-      <label for="firstName">Votre Prénom:</label><br />
+      <label for="firstName">Votre Prénom:</label>
       <input type="text" id="firstName" v-model.trim="user.firstName" required /><br />
 
-      <label for="yourMail">Votre Email:</label><br />
+      <label for="yourMail">Votre Email:</label>
       <input type="email" id="yourMail" v-model.trim="user.yourMail" required />
       <br />
 

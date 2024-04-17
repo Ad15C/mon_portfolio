@@ -4,6 +4,7 @@
     <nav>
       <RouterLink to="Accueil">Accueil</RouterLink>
       <RouterLink to="Mes Projets">Mes Projets</RouterLink>
+      <RouterLink to="Contact">Contact</RouterLink>
     </nav>
     <RouterView />
 
