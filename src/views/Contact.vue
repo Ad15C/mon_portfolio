@@ -118,7 +118,8 @@ button {
   border: none;
   color: #ddd;
   padding: 12px 150px;
-  margin-left: 700px;
+  margin-left: 550px;
+
   border-radius: 4px;
   cursor: pointer;
 }

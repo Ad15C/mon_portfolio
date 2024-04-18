@@ -19,7 +19,7 @@
 
 <style scoped>
 footer {
-  background-color: blueviolet;
+  background-color: #aaaaaaad;
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;

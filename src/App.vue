@@ -32,6 +32,6 @@ nav {
   word-spacing: 4%;
   display: flex;
   flex-direction: row;
-  background-color: pink;
+  background-color: #f2f2f2;
 }
 </style>
