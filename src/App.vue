@@ -33,5 +33,7 @@ nav {
   display: flex;
   flex-direction: row;
   background-color: #f2f2f2;
+  text-decoration: underline;
+  font-size: large;
 }
 </style>
