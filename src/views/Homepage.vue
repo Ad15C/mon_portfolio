@@ -72,19 +72,18 @@
     <form @submit.prevent="validateInfo" id="myForm" method="post">
       <h3>Pour toutes informations, remplissez le formulaire ci-dessous.</h3>
 
-      <br /><br />
+      <br />
 
       <label for="lastName">Votre Nom:</label>
-      <input type="text" id="lastName" v-model.trim="user.lastName" required /><br />
+      <input type="text" id="lastName" v-model.trim="user.lastName" required />
 
       <label for="firstName">Votre Prénom:</label>
-      <input type="text" id="firstName" v-model.trim="user.firstName" required /><br />
+      <input type="text" id="firstName" v-model.trim="user.firstName" required />
 
       <label for="yourMail">Votre Email:</label>
       <input type="email" id="yourMail" v-model.trim="user.yourMail" required />
-      <br />
 
-      <label for="yourMessages">Votre Message:</label><br />
+      <label for="yourMessages">Votre Message:</label>
       <textarea id="yourMessages" v-model.trim="user.yourMessages" required /><br />
 
       <!-- Affichage des messages d'erreur ou de succès-->
@@ -137,7 +136,7 @@ function validateInfo() {
 
 <style scoped>
 main {
-  background-color: aqua;
+  background-color: #aaaaaaad;
   width: 1500px;
   display: block;
 }
@@ -149,13 +148,17 @@ div {
   justify-content: space-evenly;
 }
 
+p {
+  width: 100%;
+  padding: 12px 20px;
+}
+
 form {
   width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-
   border-radius: 5px;
   background-color: #f2f2f2;
   padding: 20px;
@@ -199,8 +202,8 @@ button {
   background-color: #172432;
   border: none;
   color: #ddd;
-  padding: 12px 20px;
-  margin: 8px 0;
+  padding: 12px 150px;
+  margin-left: 550px;
   border-radius: 4px;
   cursor: pointer;
 }
