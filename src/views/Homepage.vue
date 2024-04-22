@@ -12,14 +12,15 @@
     </section>
 
     <!--Présentation des Projets-->
-    <section id="Projets">
+    <article id="Projets">
       <p>Ci-dessous, vous trouverez les derniers projets réalisés dernièrement:</p>
       <br />
 
-      <div class="projets_recents">
-        <div class="Mon_CV">
-          <figure>
-            <a href="https://github.com/Ad15C/Mon_cv.git">
+      <section id="projets_recents">
+        <!--Section du CV-->
+        <section id="Mon-CV">
+          <section class="container_CV">
+            <figure>
               <img
                 src="../assets/cv.png"
                 name="Mon CV"
@@ -27,46 +28,36 @@
                 width="100"
                 height="150"
               />
-            </a>
-            <figcaption>CV réalisé le <time datetime="2023-12">Décembre 2023</time></figcaption>
-          </figure>
-        </div>
+            </figure>
+          </section>
+          <!--Contenu du Modal-->
+          <section class="modal hidden">
+            <div class="flex">
+              <button class="btn-close">⨉</button>
+              <div class="Details">
+                <h3>Curriculum Vitae</h3>
 
-        <div class="Cahier_Charges">
-          <figure>
-            <a href="../assets/cahier_des_charges.pdf">
-              <img
-                src="../assets/cahier_charges.png"
-                id="Cahier des Charges"
-                alt="Présentation d'un cahier des charges"
-                width="100"
-                height="150"
-              />
-            </a>
-            <figcaption>
-              Cahier des Charges réalisé le <time datetime="2023-12">Décembre 2023</time>
-            </figcaption>
-          </figure>
-        </div>
+                <p>CV réalisé le <time datetime="2023-12">Décembre 2023</time></p>
+                <p>Technologies utilisées: HTML, CSS, VSCode, GitHub</p>
 
-        <div class="Commentaire_Dynamique">
-          <figure>
-            <a href="https://github.com/Ad15C/mon_commentaire.git">
-              <img
-                src="../assets/commentaire_dynamique.png"
-                id="Commentaire Dynamique"
-                alt="Présentation d'un commentaire dynamique"
-                width="100"
-                height="150"
-              />
-            </a>
-            <figcaption>
-              Commentaire dynamique réalisé le <time datetime="2024-02">Février 2024</time>
-            </figcaption>
-          </figure>
-        </div>
-      </div>
-    </section>
+                <a href="https://github.com/Ad15C/Mon_cv.git" download="CV">
+                  <img
+                    src="../assets/cv.png"
+                    name="Mon CV"
+                    alt="Présentation d'un Curriculum Vitae"
+                    width="100"
+                    height="150"
+                  />
+                </a>
+              </div>
+            </div>
+            <div class="overlay hidden"></div>
+
+            <button class="btn btn-open">Découvrir le Projet</button>
+          </section>
+        </section>
+      </section>
+    </article>
 
     <!--Formulaire de contact-->
     <form @submit.prevent="validateInfo" id="myForm" method="post">
@@ -90,7 +81,7 @@
       <div v-if="errorMessages">Veuillez remplir tous les champs</div>
       <div v-if="successMessage">{{ successMessage }}</div>
 
-      <button type="submit">Envoyer</button>
+      <button id="Form_button" type="submit">Envoyer</button>
     </form>
   </main>
 </template>
@@ -135,17 +126,89 @@ function validateInfo() {
 </script>
 
 <style scoped>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
 main {
   background-color: #aaaaaaad;
   width: 1500px;
-  display: block;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
 }
 
-div {
+section {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-evenly;
+}
+
+.modal {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.4rem;
+  width: 600px;
+  padding: 1.3rem;
+  min-height: 550px;
+  position: absolute;
+  top: 20%;
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 15px;
+}
+
+.modal img {
+  margin-left: 220px;
+}
+.modal h3 {
+  font-size: 0.9rem;
+  color: #777;
+  margin: 0.4rem 0 0.2rem;
+}
+
+.modal p {
+  font-size: 0.9rem;
+  color: #777;
+  margin: 0.4rem 0 0.2rem;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  font-weight: 600;
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.8rem 1.4rem;
+  font-weight: 700;
+  background-color: black;
+  color: white;
+  border-radius: 6px;
+  text-align: center;
+  font-size: 1em;
+}
+
+.btn-open {
+  position: absolute;
+  bottom: 50px;
+}
+
+.btn-close {
+  transform: translate(10px, -20px);
+  padding: 0.5rem 0.7rem;
+  margin-left: 500px;
+  background: #eee;
+  border-radius: 50%;
 }
 
 p {
@@ -197,7 +260,7 @@ textarea {
   box-sizing: border-box;
 }
 
-button {
+button_FormButton {
   display: inline-block;
   background-color: #172432;
   border: none;
@@ -215,12 +278,5 @@ figure {
   padding: 5px;
   max-width: 220px;
   margin: auto;
-}
-
-figcaption {
-  color: black;
-  font: italic smaller sans-serif;
-  padding: 3px;
-  text-align: center;
 }
 </style>
