@@ -49,30 +49,25 @@ function sendEmail() {
     !user.value.yourMail ||
     !user.value.yourMessages
   ) {
-    console.log('Echec', error.text)
-    errorMessages = true
-    successMessage = ''
+    console.log('Echec'), (errorMessages = true), (successMessage = '')
   } else {
     emailjs
-      .sendMyForm('service_1l9l5qf', 'template_wzy8319', {
-        lastName: user.value.lastName,
-        firstName: user.value.firstName,
-        yourMail: user.value.yourMail,
-        yourMessages: user.value.yourMessages,
-        publicKey: '613ddgf0TWrO04jlL'
+      .sendMyForm('service_7zpyev7', 'template_61chavl', this.$refs.form, {
+        publicKey: '1SaDY0cVap2SoBekW'
       })
       .then(() => {
-        console.log('Success', result.text), (errorMessages = false)
-        successMessage = 'Votre message a été envoyé avec succès'
-      }),
-      //Réinitialisation des champs du formulaire
-      setTimeout(() => {
-        ;(user.value.lastName = ''),
-          (user.value.firstName = ''),
-          (user.value.yourMail = ''),
-          (user.value.yourMessages = ''),
-          (successMessage.value = '') //Effacer le message après un court délai
-      }, 2000)
+        console.log('Success')
+        ;(errorMessages = false),
+          (successMessage = 'Votre message a été envoyé avec succès'),
+          //Réinitialisation des champs du formulaire
+          setTimeout(() => {
+            ;(user.value.lastName = ''),
+              (user.value.firstName = ''),
+              (user.value.yourMail = ''),
+              (user.value.yourMessages = ''),
+              (successMessage.value = '') //Effacer le message après un court délai
+          }, 2000)
+      })
   }
 }
 </script>
