@@ -51,10 +51,7 @@ function sendEmail() {
   ) {
     errorMessages = true
     successMessage = ''
-  } else {
-    errorMessages = false
-    successMessage = 'Votre message a été envoyé avec succès'
-  },
+  }
 
   emailjs
     .sendMyForm('service_1l9l5qf', 'template_wzy8319', this.$refs.form, {
@@ -62,21 +59,21 @@ function sendEmail() {
     })
     .then(
       () => {
-        console.log('Success', result.text)
+        console.log('Success', result.text), (errorMessages = false)
+        successMessage = 'Votre message a été envoyé avec succès'
       },
       (error) => {
         console.log('Echec', error.text)
       }
     ),
-
-  //Réinitialisation des champs du formulaire
-  setTimeout(() => {
-    ;(user.value.lastName = ''),
-      (user.value.firstName = ''),
-      (user.value.yourMail = ''),
-      (user.value.yourMessages = ''),
-      (successMessage.value = '') //Effacer le message après un court délai
-  }, 2000)
+    //Réinitialisation des champs du formulaire
+    setTimeout(() => {
+      ;(user.value.lastName = ''),
+        (user.value.firstName = ''),
+        (user.value.yourMail = ''),
+        (user.value.yourMessages = ''),
+        (successMessage.value = '') //Effacer le message après un court délai
+    }, 2000)
 }
 </script>
 
