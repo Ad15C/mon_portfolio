@@ -57,12 +57,12 @@ function sendEmail() {
   },
 
   emailjs
-    .sendEmail('service_1l9l5qf', 'template_wzy8319', this.$refs.form, {
+    .sendMyForm('service_1l9l5qf', 'template_wzy8319', this.$refs.form, {
       publicKey: '613ddgf0TWrO04jlL'
     })
     .then(
       () => {
-        console.log('Success')
+        console.log('Success', result.text)
       },
       (error) => {
         console.log('Echec', error.text)
