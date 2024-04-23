@@ -1,6 +1,6 @@
 <template>
   <main>
-    <form @submit.prevent="sendEmail" id="myForm" method="post">
+    <form @submit.prevent="validateInfo" id="myForm" method="post">
       <h3>Pour toutes informations, remplissez le formulaire ci-dessous.</h3>
 
       <br /><br />
@@ -29,7 +29,6 @@
 
 <script setup>
 import { ref } from 'vue'
-import emailjs from '@emailjs/browser'
 
 let user = ref({
   lastName: '',
@@ -42,33 +41,28 @@ let errorMessages = ref(false)
 let successMessage = ref('')
 
 //Fonction pour valider les Informations du Formulaire de Contact
-function sendEmail() {
+function validateInfo() {
   if (
     !user.value.lastName ||
     !user.value.firstName ||
     !user.value.yourMail ||
     !user.value.yourMessages
   ) {
-    console.log('Echec'), (errorMessages = true), (successMessage = '')
+    errorMessages = true
+    successMessage = ''
   } else {
-    emailjs
-      .sendMyForm('service_7zpyev7', 'template_61chavl', this.$refs.form, {
-        publicKey: '1SaDY0cVap2SoBekW'
-      })
-      .then(() => {
-        console.log('Success')
-        ;(errorMessages = false),
-          (successMessage = 'Votre message a été envoyé avec succès'),
-          //Réinitialisation des champs du formulaire
-          setTimeout(() => {
-            ;(user.value.lastName = ''),
-              (user.value.firstName = ''),
-              (user.value.yourMail = ''),
-              (user.value.yourMessages = ''),
-              (successMessage.value = '') //Effacer le message après un court délai
-          }, 2000)
-      })
+    errorMessages = false
+    successMessage = 'Votre message a été envoyé avec succès'
   }
+
+  //Réinitialisation des champs du formulaire
+  setTimeout(() => {
+    ;(user.value.lastName = ''),
+      (user.value.firstName = ''),
+      (user.value.yourMail = ''),
+      (user.value.yourMessages = ''),
+      (successMessage.value = '') //Effacer le message après un court délai
+  }, 2000)
 }
 </script>
 
