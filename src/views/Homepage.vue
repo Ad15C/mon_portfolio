@@ -164,15 +164,18 @@ section {
   background-color: white;
   border: 1px solid #ddd;
   border-radius: 15px;
+  z-index: 2;
 }
 
 .modal img {
   margin-left: 220px;
 }
+
 .modal h3 {
   font-size: 0.9rem;
-  color: #777;
+  color: black;
   margin: 0.4rem 0 0.2rem;
+  font-size: large;
 }
 
 .modal p {
@@ -209,6 +212,19 @@ button {
   margin-left: 500px;
   background: #eee;
   border-radius: 50%;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(3px);
+  z-index: 1;
 }
 
 p {
@@ -260,7 +276,7 @@ textarea {
   box-sizing: border-box;
 }
 
-button_FormButton {
+.button_FormButton {
   display: inline-block;
   background-color: #172432;
   border: none;
