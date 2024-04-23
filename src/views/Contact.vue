@@ -1,6 +1,6 @@
 <template>
   <main>
-    <form @submit.prevent="validateInfo" id="myForm" method="post">
+    <form @submit.prevent="sendEmail" id="myForm" method="post">
       <h3>Pour toutes informations, remplissez le formulaire ci-dessous.</h3>
 
       <br /><br />
@@ -29,6 +29,7 @@
 
 <script setup>
 import { ref } from 'vue'
+import emailjs from '@emailjs/browser'
 
 let user = ref({
   lastName: '',
@@ -41,7 +42,7 @@ let errorMessages = ref(false)
 let successMessage = ref('')
 
 //Fonction pour valider les Informations du Formulaire de Contact
-function validateInfo() {
+function sendEmail() {
   if (
     !user.value.lastName ||
     !user.value.firstName ||
@@ -53,7 +54,20 @@ function validateInfo() {
   } else {
     errorMessages = false
     successMessage = 'Votre message a été envoyé avec succès'
-  }
+  },
+
+  emailjs
+    .sendEmail('service_1l9l5qf', 'template_wzy8319', this.$refs.form, {
+      publicKey: '613ddgf0TWrO04jlL'
+    })
+    .then(
+      () => {
+        console.log('Success')
+      },
+      (error) => {
+        console.log('Echec', error.text)
+      }
+    ),
 
   //Réinitialisation des champs du formulaire
   setTimeout(() => {
