@@ -26,43 +26,35 @@
             width="100"
             height="150"
           />
-          <figcaption>CV réalisé le <time datetime="2023-12">Décembre 2023</time></figcaption>
+          <figcaption>Curriculum Vitae</figcaption>
         </figure>
       </section>
 
       <!--Cahier des Charges-->
       <section id="Cahier_des_charges">
         <figure>
-          <a href="../assets/cahier_des_charges.pdf">
-            <img
-              src="../assets/cahier_charges.png"
-              id="Cahier des Charges"
-              alt="Présentation d'un cahier des charges"
-              width="100"
-              height="150"
-            />
-          </a>
-          <figcaption>
-            Cahier des Charges réalisé le <time datetime="2023-12">Décembre 2023</time>
-          </figcaption>
+          <img
+            src="../assets/cahier_charges.png"
+            id="Cahier des Charges"
+            alt="Présentation d'un cahier des charges"
+            width="100"
+            height="150"
+          />
+          <figcaption>Cahier des Charges</figcaption>
         </figure>
       </section>
 
       <!--Commentaire Dynamqique-->
       <section id="Cahier_des_charges">
         <figure>
-          <a href="https://github.com/Ad15C/mon_commentaire.git">
-            <img
-              src="../assets/commentaire_dynamique.png"
-              id="Commentaire Dynamique"
-              alt="Présentation d'un commentaire dynamique"
-              width="100"
-              height="150"
-            />
-          </a>
-          <figcaption>
-            Commentaire dynamique réalisé le <time datetime="2024-02">Février 2024</time>
-          </figcaption>
+          <img
+            src="../assets/commentaire_dynamique.png"
+            id="Commentaire Dynamique"
+            alt="Présentation d'un commentaire dynamique"
+            width="100"
+            height="150"
+          />
+          <figcaption>Commentaire dynamique</figcaption>
         </figure>
       </section>
     </article>
@@ -96,6 +88,7 @@
 
 <script setup>
 import { ref } from 'vue'
+import Modal from '@/components/Modal.vue'
 
 let user = ref({
   lastName: '',
@@ -158,9 +151,12 @@ section {
 }
 
 article {
+  width: 100%;
+  padding: 12px 20px;
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
+  justify-content: space-around;
 }
 
 p {
@@ -212,7 +208,7 @@ textarea {
   box-sizing: border-box;
 }
 
-.button_FormButton {
+button {
   display: inline-block;
   background-color: #172432;
   border: none;
@@ -225,10 +221,16 @@ textarea {
 
 figure {
   display: flex;
-  flex-flow: column;
+  flex-wrap: wrap;
+  flex-direction: column;
+  row-gap: 5px;
   align-items: center;
   padding: 5px;
   max-width: 220px;
   margin: auto;
+}
+
+figcaption {
+  font-size: small;
 }
 </style>
