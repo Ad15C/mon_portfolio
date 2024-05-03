@@ -1,22 +1,23 @@
 <template>
-  <div class="modal-backdrop">
-    <div class="modal">
-      <header class="modal-header">
-        <span class="" modal_title>Titre du Modal</span>
-        <img class="btn-close" src="../assets/fermeture.png" alt="btn-close" />
-      </header>
-      <section class="modal-body">
-        <p>Description du Modal</p>
-      </section>
-      <footer class="modal-footer"></footer>
+  <section class="modal hidden">
+    <div class="modal_header">
+      <button class="btn-close">X</button>
     </div>
-  </div>
+
+    <div class="modal_body">
+      <!--Faire des props ici-->
+      <p>date</p>
+      <p>description</p>
+      <p>technologies utilisées</p>
+    </div>
+  </section>
+
+  <div class="overlay hidden"></div>
+  <button class="btn btn-open">Ouvrir le Modal</button>
 </template>
 
 <script setup>
-export default {
-  name: 'Modal'
-}
+import Modal from '@/views/Homepage.vue'
 </script>
 
 <style scoped>
