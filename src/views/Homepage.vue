@@ -94,12 +94,6 @@
 import Modal from '@/components/Modal.vue'
 import { ref } from 'vue'
 
-export default {
-  components: {
-    Modal
-  }
-}
-
 let user = ref({
   lastName: '',
   firstName: '',
