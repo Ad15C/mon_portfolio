@@ -59,11 +59,8 @@
       </section>
     </article>
 
-    <Modal :modalActive="modalActive">
-      <div class="modal-content">
-        <h3>C'est le modal</h3>
-        <p>Message du Modal</p>
-      </div>
+    <Modal>
+      <button type="button">Ouvrir le Modal</button>
     </Modal>
 
     <!--Formulaire de contact-->
@@ -94,22 +91,14 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
 import Modal from '@/components/Modal.vue'
+import { ref } from 'vue'
 
 export default {
-  name: 'Homepage',
   components: {
     Modal
-  },
-  setup() {
-    const modalActive = ref(true)
-
-    return { modalActive }
   }
 }
-
-const modalActive = ref(true)
 
 let user = ref({
   lastName: '',

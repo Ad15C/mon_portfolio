@@ -1,20 +1,22 @@
 <template>
-  <Transition name="modal-animation">
-    <div v-show="modalActive" class="modal">
-      <Transition name="modal-animation-inner">
-        <div v-show="modalActive" class="modal-inner">
-          <img src="../assets/fermeture.png" alt="button" />
-          <!--Contenu du Modal-->
-          <slot />
-          <button>Fermer</button>
-        </div>
-      </Transition>
+  <div class="modal-backdrop">
+    <div class="modal">
+      <header class="modal-header">
+        <span class="" modal_title>Titre du Modal</span>
+        <img class="btn-close" src="../assets/fermeture.png" alt="btn-close" />
+      </header>
+      <section class="modal-body">
+        <p>Description du Modal</p>
+      </section>
+      <footer class="modal-footer"></footer>
     </div>
-  </Transition>
+  </div>
 </template>
 
 <script setup>
-defineProps: ['modalActive']
+export default {
+  name: 'Modal'
+}
 </script>
 
 <style scoped>
