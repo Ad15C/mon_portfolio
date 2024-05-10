@@ -22,7 +22,7 @@
       <div v-if="errorMessages">Veuillez remplir tous les champs</div>
       <div v-if="successMessage">{{ successMessage }}</div>
 
-      <button type="submit">Envoyer</button>
+      <button type="submit" value="submit">Envoyer</button>
     </form>
   </main>
 </template>
