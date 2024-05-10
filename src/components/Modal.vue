@@ -1,23 +1,40 @@
 <template>
-  <section class="modal hidden">
-    <div class="modal_header">
-      <button class="btn-close">X</button>
+  <!--Mise en place d'une condition afin que la modale n'apparaisse que lorsque isOpsen est true, sinon elle sera masquée-->
+  <div class="modal-overlay" v-if="isOpen">
+    <div class="modal-container">
+      <div class="modal-header">
+        <h2>{{ title }}</h2>
+        <!--Bouton pour fermer la modale-->
+        <button @click="closeModal">X</button>
+      </div>
+      <!--Corps de la modale où l'on va mettre le détail des projets-->
+      <div class="modal-body">
+        <div v-for="(project, index) in projects" :key="index" class="modal-image">
+          <img :src="project" :alt="project.title" />
+          <p>{{ project.description }}</p>
+          <p>{{ project.technologies }}</p>
+        </div>
+      </div>
     </div>
-
-    <div class="modal_body">
-      <!--Faire des props ici-->
-      <p>date</p>
-      <p>description</p>
-      <p>technologies utilisées</p>
-    </div>
-  </section>
-
-  <div class="overlay hidden"></div>
-  <button class="btn btn-open">Ouvrir le Modal</button>
+  </div>
 </template>
 
 <script setup>
-import Modal from '@/views/Homepage.vue'
+import { ref } from 'vue'
+
+//On définit les propriétés qu'un composant peut recevoir de son parent
+const props = defineProps({
+  isOpen: Boolean,
+  title: String,
+  Image: Array
+})
+
+//Pour fermer la modale
+const closeModal = () => {
+  emit('update:isOpen', false)
+}
+
+const clickOutsideModal = () => {}
 </script>
 
 <style scoped>

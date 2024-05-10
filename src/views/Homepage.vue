@@ -15,53 +15,18 @@
     <article id="Projets">
       <p>Ci-dessous, vous trouverez les derniers projets réalisés dernièrement:</p>
       <br />
+      <div class="mes_projets">
+        <div v-for="(project, index) in projects" :key="index" @click="openModal(project)">
+          <img :src="project.thunmbnail" :alt="project.title" />
+          <h3>{{ title }}</h3>
+          <p>{{ project.description }}</p>
+          <p>{{ project.technologies }}</p>
+        </div>
+      </div>
 
-      <!--Section du CV-->
-      <section id="Mon_CV">
-        <figure>
-          <img
-            src="../assets/cv.png"
-            name="Mon CV"
-            alt="Présentation d'un Curriculum Vitae"
-            width="100"
-            height="150"
-          />
-          <figcaption>Curriculum Vitae</figcaption>
-        </figure>
-      </section>
-
-      <!--Cahier des Charges-->
-      <section id="Cahier_des_charges">
-        <figure>
-          <img
-            src="../assets/cahier_charges.png"
-            id="Cahier des Charges"
-            alt="Présentation d'un cahier des charges"
-            width="100"
-            height="150"
-          />
-          <figcaption>Cahier des Charges</figcaption>
-        </figure>
-      </section>
-
-      <!--Commentaire Dynamqique-->
-      <section id="Cahier_des_charges">
-        <figure>
-          <img
-            src="../assets/commentaire_dynamique.png"
-            id="Commentaire Dynamique"
-            alt="Présentation d'un commentaire dynamique"
-            width="100"
-            height="150"
-          />
-          <figcaption>Commentaire dynamique</figcaption>
-        </figure>
-      </section>
+      <!--Ajout du modal component avec les props-->
+      <Modal :show="isModalOpen" :project="selectedProject" @close="isModalOpen = false" />
     </article>
-
-    <Modal>
-      <button type="button">Ouvrir le Modal</button>
-    </Modal>
 
     <!--Formulaire de contact-->
     <form @submit.prevent="validateInfo" id="myForm" method="post">
@@ -91,8 +56,8 @@
 </template>
 
 <script setup>
-import Modal from '@/components/Modal.vue'
 import { ref } from 'vue'
+import Modal from '@/components/Modal.vue'
 
 let user = ref({
   lastName: '',
