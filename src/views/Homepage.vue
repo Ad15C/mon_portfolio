@@ -16,16 +16,11 @@
       <p>Ci-dessous, vous trouverez les derniers projets réalisés dernièrement:</p>
       <br />
       <div class="mes_projets">
-        <div v-for="(project, index) in projects" :key="index" @click="openModal(project)">
-          <img :src="project.thunmbnail" :alt="project.title" />
-          <h3>{{ title }}</h3>
-          <p>{{ project.description }}</p>
-          <p>{{ project.technologies }}</p>
+        <div v-for="(project, index) in projects" :key="index">
+          <img :src="project.image" alt="Project Image" @click="openModal(project)" />
         </div>
+        <Modal v-if="showModal" :project="selectedProject" @click="closeModal"></Modal>
       </div>
-
-      <!--Ajout du modal component avec les props-->
-      <Modal :show="isModalOpen" :project="selectedProject" @close="isModalOpen = false" />
     </article>
 
     <!--Formulaire de contact-->
@@ -56,9 +51,66 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { onMounted, ref } from 'vue'
 import Modal from '@/components/Modal.vue'
 
+//Détails pour les différents projets
+const projects = ref([
+  {
+    image: 'C:\Users\User\Mon_portfolio\public\cv.png',
+    title: 'CV',
+    date: 'Décembre 2023',
+    description: 'Réalisation de CV ',
+    technologies: 'HTML, CSS, GitHub, VSCode',
+    downloadLink: 'https://github.com/Ad15C/Mon_cv.git'
+  },
+
+  {
+    image: 'C:\Users\User\Mon_portfolio\public\cahier_charges.png',
+    title: 'Cahier des Charges',
+    date: 'Décembre 2023',
+    description:
+      'Cahier des Charges pour La Socketterie, souhaitant faire une refonte de son site internet et un bilan de la concurrence',
+    technologies: 'Word',
+    downloadLink: 'C:\Users\User\Mon_portfolio\src\assets\cahier_des_charges.pdf'
+  },
+
+  {
+    image: 'C:\Users\User\Mon_portfolio\public\commentaire_dynamique.png',
+    title: 'Commentaire Dynamique',
+    date: 'Février 2024',
+    description: 'Réalisation de Commentaire Dynamique ',
+    technologies: 'HTML, CSS, GitHub, VSCode, JavaScript',
+    downloadLink: 'https://github.com/Ad15C/mon_commentaire.git'
+  }
+])
+
+//On masque le modal
+const showModal = ref(false)
+
+//la valeur null est utilisée pour l'état initial où le modal n'est pas affiché
+const selectedProject = ref(null)
+
+//Ouverture du Modal
+const openModal = (projects) => {
+  selectedProject.value = null
+  showModal.value = true
+}
+
+//Fermeture du Modal
+const closeModal = () => {
+  selectedProject.value = null
+  showModal.value = false
+}
+
+const handleOutsideClick = (event) => {
+  const modal = document.querySelector('modal-content')
+  if (modal && !modal.contains(event.target)) {
+    closeModal()
+  }
+}
+
+//Pour le formulaire
 let user = ref({
   lastName: '',
   firstName: '',
@@ -131,6 +183,22 @@ article {
   flex-wrap: wrap;
   flex-direction: row;
   justify-content: space-around;
+}
+
+.modal {
+  display: none /*par défaut, le modal est caché*/;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.4rem;
+  width: 450px;
+  padding: 1.3rem;
+  min-height: 250px;
+  position: absolute;
+  z-index: 2;
+  top: 20%;
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 15px;
 }
 
 p {
