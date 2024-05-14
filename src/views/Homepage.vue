@@ -25,7 +25,9 @@
 
     <!--Formulaire de contact-->
     <form @submit.prevent="validateInfo" id="myForm" method="post">
+
       <h3 id="myForm">Pour toutes informations, remplissez le formulaire ci-dessous.</h3>
+
 
       <br />
 
@@ -51,7 +53,9 @@
 </template>
 
 <script setup>
+
 import { ref } from 'vue'
+
 import Modal from '@/components/Modal.vue'
 
 //Détails pour les différents projets
@@ -72,7 +76,9 @@ const projects = ref([
     description:
       'Cahier des Charges pour La Socketterie, souhaitant faire une refonte de son site internet et un bilan de la concurrence',
     technologies: 'Word',
+
     downloadLink: 'C:\Users\User\Mon_portfolio\public\cahier_des_charges.pdf'
+
   },
 
   {
@@ -88,12 +94,16 @@ const projects = ref([
 //On masque le modal
 const showModal = ref(false)
 
+
 //la valeur nulle est utilisée pour l'état initial où le modal n'est pas affiché
+
 const selectedProject = ref(null)
 
 //Ouverture du Modal
 const openModal = (projects) => {
+
   selectedProject.value = projects
+
   showModal.value = true
 }
 
@@ -185,6 +195,7 @@ article {
   justify-content: space-around;
 }
 
+
 p {
   width: 100%;
   padding: 12px 20px;
@@ -244,4 +255,5 @@ button {
   border-radius: 4px;
   cursor: pointer;
 }
+
 </style>

@@ -1,21 +1,25 @@
 <template>
+
   <div class="modal" v-if="selectedProject" id="myModal">
     <div class="modal-content">
       <span class="close" @click="close">&times;</span>
       <!--Détail du modal-->
       <img :src="project.image" alt="Project Image" />
       <h3 id="projectName">{{ project.title }}</h3>
+
       <p>{{ project.date }}</p>
       <p>{{ project.description }}</p>
       <p>{{ project.technologies }}</p>
       <!--Bouton de téléchargement du projet dans le modal-->
+
       <button id="downloadButton">Télécharger</button>
+
     </div>
   </div>
 </template>
 
 <script setup>
-import Projets from '@/views/Projets.vue'
+
 import { defineProps, defineEmits } from 'vue'
 
 const props = defineProps({
@@ -24,6 +28,7 @@ const props = defineProps({
     required: true
   }
 })
+
 
 //Emit permet à un composant de spécifier quels événements il émet ainsi que les arguments qu'il prend
 const { emit } = defineEmits()
@@ -45,6 +50,13 @@ document.getElementById('downloadButton').addEventListener('click', function () 
     alert('Lien de téléchargement introuvable pour ce projet')
   }
 })
+
+const { emit } = defineEmits()
+
+const close = () => {
+  emit('close')
+}
+
 </script>
 
 <style scoped>
