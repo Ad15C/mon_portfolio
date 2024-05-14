@@ -1,21 +1,25 @@
 <template>
-  <div class="modal">
+
+  <div class="modal" v-if="selectedProject" id="myModal">
     <div class="modal-content">
-      <!--Bouton pour la fermeture du modal-->
       <span class="close" @click="close">&times;</span>
       <!--Détail du modal-->
       <img :src="project.image" alt="Project Image" />
-      <h3>{{ project.title }}</h3>
+      <h3 id="projectName">{{ project.title }}</h3>
+
       <p>{{ project.date }}</p>
       <p>{{ project.description }}</p>
       <p>{{ project.technologies }}</p>
       <!--Bouton de téléchargement du projet dans le modal-->
-      <button @click="downloadProject(project.title)">Télécharger {{ project.title }}</button>
+
+      <button id="downloadButton">Télécharger</button>
+
     </div>
   </div>
 </template>
 
 <script setup>
+
 import { defineProps, defineEmits } from 'vue'
 
 const props = defineProps({
@@ -25,11 +29,34 @@ const props = defineProps({
   }
 })
 
+
+//Emit permet à un composant de spécifier quels événements il émet ainsi que les arguments qu'il prend
+const { emit } = defineEmits()
+
+//Fermeture du modal
+const close = () => {
+  emit('close')
+}
+
+//Gestionnaire d'événement pour télécharger le projet
+document.getElementById('downloadButton').addEventListener('click', function () {
+  //Récupération du lien de téléchargement du fichier
+  let downloadLink = this.getAttribute('data-download-link')
+
+  //Déclencher le téléchargement
+  if (downloadLink) {
+    window.location.href = downloadLink
+  } else {
+    alert('Lien de téléchargement introuvable pour ce projet')
+  }
+})
+
 const { emit } = defineEmits()
 
 const close = () => {
   emit('close')
 }
+
 </script>
 
 <style scoped>

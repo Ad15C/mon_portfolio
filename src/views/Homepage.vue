@@ -25,7 +25,9 @@
 
     <!--Formulaire de contact-->
     <form @submit.prevent="validateInfo" id="myForm" method="post">
-      <h3>Pour toutes informations, remplissez le formulaire ci-dessous.</h3>
+
+      <h3 id="myForm">Pour toutes informations, remplissez le formulaire ci-dessous.</h3>
+
 
       <br />
 
@@ -51,7 +53,9 @@
 </template>
 
 <script setup>
-import { onMounted, ref } from 'vue'
+
+import { ref } from 'vue'
+
 import Modal from '@/components/Modal.vue'
 
 //Détails pour les différents projets
@@ -72,7 +76,9 @@ const projects = ref([
     description:
       'Cahier des Charges pour La Socketterie, souhaitant faire une refonte de son site internet et un bilan de la concurrence',
     technologies: 'Word',
-    downloadLink: 'C:\Users\User\Mon_portfolio\src\assets\cahier_des_charges.pdf'
+
+    downloadLink: 'C:\Users\User\Mon_portfolio\public\cahier_des_charges.pdf'
+
   },
 
   {
@@ -88,12 +94,16 @@ const projects = ref([
 //On masque le modal
 const showModal = ref(false)
 
-//la valeur null est utilisée pour l'état initial où le modal n'est pas affiché
+
+//la valeur nulle est utilisée pour l'état initial où le modal n'est pas affiché
+
 const selectedProject = ref(null)
 
 //Ouverture du Modal
 const openModal = (projects) => {
-  selectedProject.value = null
+
+  selectedProject.value = projects
+
   showModal.value = true
 }
 
@@ -185,21 +195,6 @@ article {
   justify-content: space-around;
 }
 
-.modal {
-  display: none /*par défaut, le modal est caché*/;
-  flex-direction: column;
-  justify-content: center;
-  gap: 0.4rem;
-  width: 450px;
-  padding: 1.3rem;
-  min-height: 250px;
-  position: absolute;
-  z-index: 2;
-  top: 20%;
-  background-color: white;
-  border: 1px solid #ddd;
-  border-radius: 15px;
-}
 
 p {
   width: 100%;
@@ -261,18 +256,4 @@ button {
   cursor: pointer;
 }
 
-figure {
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: column;
-  row-gap: 5px;
-  align-items: center;
-  padding: 5px;
-  max-width: 220px;
-  margin: auto;
-}
-
-figcaption {
-  font-size: small;
-}
 </style>
