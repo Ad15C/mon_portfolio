@@ -87,6 +87,15 @@ const projects = ref([
   }
 ])
 
+//Sélection du Projet
+//la valeur nulle est utilisée pour l'état initial où le modal n'est pas affiché
+const selectedProject = ref(null)
+
+//Ouverture du Modal
+const openModal = (project) => {
+  selectedProject.value = project
+}
+
 //Pour le formulaire
 let user = ref({
   lastName: '',
