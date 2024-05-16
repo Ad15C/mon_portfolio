@@ -3,7 +3,7 @@
     <div class="modal-content">
       <span class="close" @click="closeModal">&times;</span>
       <!--Détail du modal-->
-      <img :src="project.image" alt="Project Image" />
+      <img :src="project.image" alt="Project Image" id="modalProject" />
       <h3 id="projectName">{{ project.title }}</h3>
       <p>{{ project.date }}</p>
       <p>{{ project.description }}</p>
@@ -77,12 +77,24 @@ const handleOutsideClick = (event) => {
 }
 
 .modal {
-  display: none;
   position: fixed;
-  z-index: 1;
-  padding-left: 50px;
-  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   top: 0;
+  left: 0;
   width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+  background-color: whitesmoke;
+  padding: 20px;
+}
+
+.modalProject {
+  width: 100px;
+  height: 150px;
 }
 </style>
