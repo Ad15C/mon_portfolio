@@ -1,5 +1,5 @@
 <template>
-  <div class="modal" v-if="selectedProject" id="myModal">
+  <div class="modal">
     <div class="modal-content">
       <div class="modal_header">
         <span class="close" @click="closeModal">&times;</span>
@@ -30,12 +30,12 @@ const props = defineProps({
   }
 })
 
+//Emit permet à un composant de spécifier quels événements il émet ainsi que les arguments qu'il prend
+const { emit } = defineEmits()
+
 //Sélection du Projet
 //la valeur nulle est utilisée pour l'état initial où le modal n'est pas affiché
 const selectedProject = ref(null)
-
-//Emit permet à un composant de spécifier quels événements il émet ainsi que les arguments qu'il prend
-const { emit } = defineEmits()
 
 //Ouverture du Modal
 const openModal = (project) => {

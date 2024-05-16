@@ -3,12 +3,17 @@
     <div class="Networks">
       <div class="Linkedin">
         <a href="www.linkedin.com/in/adelinecanon">
-          <img src="../assets/logo_linkedin.png" alt="Profil_LinkedIn" width="25" height="25" />
+          <img
+            src="../assets/logos/logo_linkedin.png"
+            alt="Profil_LinkedIn"
+            width="25"
+            height="25"
+          />
         </a>
       </div>
       <div class="GitHub">
         <a href="https://github.com/Ad15C">
-          <img src="../assets/signe-github.png" alt="Profil_GitHub" width="25" height="25" />
+          <img src="..//assets/logos/signe-github.png" alt="Profil_GitHub" width="25" height="25" />
         </a>
       </div>
     </div>
