@@ -1,7 +1,14 @@
 <template>
   <header>
-    <img alt="logo" class="logo" src="../assets/logos/Logo_AC.png" />
-    <h1>Bienvenue sur mon Portfolio</h1>
+    <section>
+      <img alt="logo" class="logo" src="../assets/logos/Logo_AC.png" />
+      <h1>Bienvenue sur mon Portfolio</h1>
+    </section>
+    <nav>
+      <a href="#">Accueil</a>
+      <a href="#">Projets</a>
+      <a href="#">Contact</a>
+    </nav>
   </header>
 </template>
 
@@ -26,9 +33,8 @@ header {
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  align-content: space-around;
   width: 1500px;
-  height: 300px;
+  height: 400px;
   padding-top: 40px;
   padding-bottom: 40px;
   margin: 0px;
@@ -36,5 +42,27 @@ header {
 
 .logo {
   height: 150px;
+  width: 150px;
+  display: flex;
+  flex-direction: column;
+}
+
+section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+nav {
+  height: 50px;
+  width: 1500px;
+  word-spacing: 50%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  background-color: #f2f2f2;
+  text-decoration: underline;
+  font-size: large;
 }
 </style>
