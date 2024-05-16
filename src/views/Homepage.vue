@@ -19,7 +19,7 @@
         <div v-for="(project, index) in projects" :key="index">
           <img :src="project.image" alt="Project Image" @click="openModal(project)" />
         </div>
-        <Modal v-if="selectedProject" :project="selectedProject" @closeModal="closeModal"></Modal>
+        <Modal v-if="selectedProject" :project="selectedProject" @click="closeModal"></Modal>
       </div>
     </article>
 
