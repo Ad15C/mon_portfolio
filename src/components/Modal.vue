@@ -1,17 +1,16 @@
 <template>
   <div class="modal" v-if="selectedProject" id="myModal">
     <div class="modal-content">
-      <span class="close" @click="close">&times;</span>
+      <span class="close" @click="closeModal">&times;</span>
       <!--Détail du modal-->
       <img :src="project.image" alt="Project Image" />
       <h3 id="projectName">{{ project.title }}</h3>
-
       <p>{{ project.date }}</p>
       <p>{{ project.description }}</p>
       <p>{{ project.technologies }}</p>
-      <!--Bouton de téléchargement du projet dans le modal-->
 
-      <button id="downloadButton">Télécharger</button>
+      <!--Bouton de téléchargement du projet dans le modal-->
+      <button id="downloadButton" @click="handleDownload">Télécharger</button>
     </div>
   </div>
 </template>
@@ -26,26 +25,42 @@ const props = defineProps({
   }
 })
 
+//On masque le modal
+const showModal = ref(false)
+
+//Sélection du Projet
+//la valeur nulle est utilisée pour l'état initial où le modal n'est pas affiché
+const selectedProject = ref(null)
+
 //Emit permet à un composant de spécifier quels événements il émet ainsi que les arguments qu'il prend
 const { emit } = defineEmits()
 
-//Fermeture du modal
-const close = () => {
-  emit('close')
+//Ouverture du Modal
+const openModal = (project) => {
+  selectedProject.value = project
+  showModal.value = true
 }
 
 //Gestionnaire d'événement pour télécharger le projet
-document.getElementById('downloadButton').addEventListener('click', function () {
-  //Récupération du lien de téléchargement du fichier
-  let downloadLink = this.getAttribute('data-download-link')
-
-  //Déclencher le téléchargement
-  if (downloadLink) {
-    window.location.href = downloadLink
+const handleDownload = () => {
+  if (props.project.downloadLink) {
+    window.location.href = props.project.downloadLink
   } else {
     alert('Lien de téléchargement introuvable pour ce projet')
   }
-})
+}
+
+//Fermeture du Modal si l'on clique sur le bouton/Span
+const closeModal = () => {
+  selectedProject.value = null
+  showModal.value = false
+}
+
+//Fermeture du Modal si l'on clique en dehors du modal
+const handleOutsideClick = (event) => {
+  selectedProject.value = null
+  showModal.value = false
+}
 </script>
 
 <style scoped>
@@ -59,5 +74,15 @@ document.getElementById('downloadButton').addEventListener('click', function () 
   font-weight: 300;
   font-style: normal;
   font-optical-sizing: auto;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  padding-left: 50px;
+  left: 0;
+  top: 0;
+  width: 100%;
 }
 </style>

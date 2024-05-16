@@ -6,7 +6,7 @@
         Je m'appelle Adeline et j'aime tout ce qui se rapporte à la technologie, et suis également
         passsionnée de sport. Mon but est de vous permettre à réaliser vos projets, que ce soit un
         site web, une application mobile, etc.<br />
-        Je suis prête à relever les défis qui s'offre à moi.
+        Je suis prête à relever les défis qui s'offrent à moi.
       </p>
       <br />
     </section>
@@ -19,7 +19,7 @@
         <div v-for="(project, index) in projects" :key="index">
           <img :src="project.image" alt="Project Image" @click="openModal(project)" />
         </div>
-        <Modal v-if="showModal" :project="selectedProject" @click="closeModal"></Modal>
+        <Modal v-if="selectedProject" :project="selectedProject" @closeModal="closeModal"></Modal>
       </div>
     </article>
 
@@ -58,7 +58,7 @@ import Modal from '@/components/Modal.vue'
 //Détails pour les différents projets
 const projects = ref([
   {
-    image: 'C:\Users\User\Mon_portfolio\public\cv.png',
+    image: ' /cv.png',
     title: 'CV',
     date: 'Décembre 2023',
     description: 'Réalisation de CV ',
@@ -67,18 +67,18 @@ const projects = ref([
   },
 
   {
-    image: 'C:\Users\User\Mon_portfolio\public\cahier_charges.png',
+    image: '/cahier_charges.png',
     title: 'Cahier des Charges',
     date: 'Décembre 2023',
     description:
       'Cahier des Charges pour La Socketterie, souhaitant faire une refonte de son site internet et un bilan de la concurrence',
     technologies: 'Word',
 
-    downloadLink: 'C:\Users\User\Mon_portfolio\public\cahier_des_charges.pdf'
+    downloadLink: 'public/cahier_des_charges.pdf'
   },
 
   {
-    image: 'C:\Users\User\Mon_portfolio\public\commentaire_dynamique.png',
+    image: '/commentaire_dynamique.png',
     title: 'Commentaire Dynamique',
     date: 'Février 2024',
     description: 'Réalisation de Commentaire Dynamique ',
@@ -86,33 +86,6 @@ const projects = ref([
     downloadLink: 'https://github.com/Ad15C/mon_commentaire.git'
   }
 ])
-
-//On masque le modal
-const showModal = ref(false)
-
-//la valeur nulle est utilisée pour l'état initial où le modal n'est pas affiché
-
-const selectedProject = ref(null)
-
-//Ouverture du Modal
-const openModal = (projects) => {
-  selectedProject.value = projects
-
-  showModal.value = true
-}
-
-//Fermeture du Modal
-const closeModal = () => {
-  selectedProject.value = null
-  showModal.value = false
-}
-
-const handleOutsideClick = (event) => {
-  const modal = document.querySelector('modal-content')
-  if (modal && !modal.contains(event.target)) {
-    closeModal()
-  }
-}
 
 //Pour le formulaire
 let user = ref({
@@ -178,6 +151,11 @@ section {
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
+}
+
+img {
+  width: 100px;
+  height: 150px;
 }
 
 article {
