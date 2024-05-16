@@ -1,16 +1,21 @@
 <template>
   <div class="modal" v-if="selectedProject" id="myModal">
     <div class="modal-content">
-      <span class="close" @click="closeModal">&times;</span>
-      <!--Détail du modal-->
-      <img :src="project.image" alt="Project Image" id="modalProject" />
-      <h3 id="projectName">{{ project.title }}</h3>
-      <p>{{ project.date }}</p>
-      <p>{{ project.description }}</p>
-      <p>{{ project.technologies }}</p>
-
-      <!--Bouton de téléchargement du projet dans le modal-->
-      <button id="downloadButton" @click="handleDownload">Télécharger</button>
+      <div class="modal_header">
+        <span class="close" @click="closeModal">&times;</span>
+      </div>
+      <div class="modal_body">
+        <!--Détail du modal-->
+        <img :src="project.image" alt="Project Image" id="modalProject" />
+        <h3 id="projectName">{{ project.title }}</h3>
+        <p>{{ project.date }}</p>
+        <p>{{ project.description }}</p>
+        <p>{{ project.technologies }}</p>
+      </div>
+      <div class="modal_footer">
+        <!--Bouton de téléchargement du projet dans le modal-->
+        <button id="downloadButton" @click="handleDownload">Télécharger</button>
+      </div>
     </div>
   </div>
 </template>
@@ -25,9 +30,6 @@ const props = defineProps({
   }
 })
 
-//On masque le modal
-const showModal = ref(false)
-
 //Sélection du Projet
 //la valeur nulle est utilisée pour l'état initial où le modal n'est pas affiché
 const selectedProject = ref(null)
@@ -38,7 +40,6 @@ const { emit } = defineEmits()
 //Ouverture du Modal
 const openModal = (project) => {
   selectedProject.value = project
-  showModal.value = true
 }
 
 //Gestionnaire d'événement pour télécharger le projet
@@ -53,13 +54,11 @@ const handleDownload = () => {
 //Fermeture du Modal si l'on clique sur le bouton/Span
 const closeModal = () => {
   selectedProject.value = null
-  showModal.value = false
 }
 
 //Fermeture du Modal si l'on clique en dehors du modal
 const handleOutsideClick = (event) => {
   selectedProject.value = null
-  showModal.value = false
 }
 </script>
 
@@ -93,7 +92,7 @@ const handleOutsideClick = (event) => {
   padding: 20px;
 }
 
-.modalProject {
+#modalProject {
   width: 100px;
   height: 150px;
 }
