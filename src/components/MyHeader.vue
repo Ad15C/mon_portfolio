@@ -5,9 +5,9 @@
       <h1>Bienvenue sur mon Portfolio</h1>
     </section>
     <nav>
-      <a href="#">Accueil</a>
-      <a href="#">Projets</a>
-      <a href="#">Contact</a>
+      <a href="Accueil">Accueil</a>
+      <a href="Projets">Projets</a>
+      <a href="Contact">Contact</a>
     </nav>
   </header>
 </template>
@@ -51,6 +51,7 @@ section {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
 }
 
 nav {

@@ -1,30 +1,28 @@
 <template>
-  <main>
-    <form @submit.prevent="validateInfo" id="myForm" method="post">
-      <h3>Pour toutes informations, remplissez le formulaire ci-dessous.</h3>
+  <form @submit.prevent="validateInfo" id="myForm" method="post">
+    <h3>Pour toutes informations, remplissez le formulaire ci-dessous.</h3>
 
-      <br /><br />
+    <br /><br />
 
-      <label for="lastName">Votre Nom:</label>
-      <input type="text" id="lastName" v-model.trim="user.lastName" required /><br />
+    <label for="lastName">Votre Nom:</label>
+    <input type="text" id="lastName" v-model.trim="user.lastName" required /><br />
 
-      <label for="firstName">Votre Prénom:</label>
-      <input type="text" id="firstName" v-model.trim="user.firstName" required /><br />
+    <label for="firstName">Votre Prénom:</label>
+    <input type="text" id="firstName" v-model.trim="user.firstName" required /><br />
 
-      <label for="yourMail">Votre Email:</label>
-      <input type="email" id="yourMail" v-model.trim="user.yourMail" required />
-      <br />
+    <label for="yourMail">Votre Email:</label>
+    <input type="email" id="yourMail" v-model.trim="user.yourMail" required />
+    <br />
 
-      <label for="yourMessages">Votre Message:</label>
-      <textarea id="yourMessages" v-model.trim="user.yourMessages" required /><br />
+    <label for="yourMessages">Votre Message:</label>
+    <textarea id="yourMessages" v-model.trim="user.yourMessages" required /><br />
 
-      <!-- Affichage des messages d'erreur ou de succès-->
-      <div v-if="errorMessages">Veuillez remplir tous les champs</div>
-      <div v-if="successMessage">{{ successMessage }}</div>
+    <!-- Affichage des messages d'erreur ou de succès-->
+    <div v-if="errorMessages">Veuillez remplir tous les champs</div>
+    <div v-if="successMessage">{{ successMessage }}</div>
 
-      <button type="submit" value="submit">Envoyer</button>
-    </form>
-  </main>
+    <button type="submit" value="submit">Envoyer</button>
+  </form>
 </template>
 
 <script setup>
@@ -85,7 +83,6 @@ form {
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-
   border-radius: 5px;
   background-color: #f2f2f2;
   padding: 20px;

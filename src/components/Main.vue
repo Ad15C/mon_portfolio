@@ -29,37 +29,8 @@
 }
 
 main {
-  background-color: #aaaaaaad;
-  width: 100%;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-}
-
-section {
-  display: flex;
-  flex-wrap: wrap;
   flex-direction: row;
-}
-
-img {
-  width: 100px;
-  height: 150px;
-}
-
-article {
-  width: 100%;
-  padding: 12px 20px;
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: row;
-  justify-content: space-around;
-}
-
-p {
-  width: 100%;
-  padding: 12px 20px;
+  justify-content: baseline;
 }
 </style>
