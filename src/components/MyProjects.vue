@@ -4,9 +4,14 @@
     <br />
     <div class="mes_projets">
       <div v-for="(project, index) in projects" :key="index">
-        <img :src="project.image" @click="openModal(project)" />
+        <img :src="project.image" @click="isOpenModal(project)" />
       </div>
-      <Modal v-if="selectedProject" :project="selectedProject" @close="closeModal" />
+      <Modal
+        v-if="selectedProject"
+        :project="selectedProject"
+        :is-open-modal="openModal"
+        @close="closeModal"
+      />
     </div>
   </section>
 </template>
@@ -49,14 +54,21 @@ const projects = ref([
 
 //Sélection du Projet
 //la valeur nulle est utilisée pour l'état initial où le modal n'est pas affiché
-const selectedProject = ref(null)
+let selectedProject = ref(null)
+
+let isOpenModal = ref(false)
 
 //Ouverture du Modal
 const openModal = (project) => {
-  selectedProject.value = project
+  ;(selectedProject.value = project), (isOpenModal = true)
+}
+
+//Fermeture du Modal
+const closeModal = () => {
+  ;(selectedProject.value = null), (isOpenModal = false)
 }
 </script>
-z
+
 <style scoped>
 @import url('https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 

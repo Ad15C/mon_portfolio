@@ -1,8 +1,8 @@
 <template>
-  <div class="modal">
+  <div v-if="isOpenModal" class="modal">
     <div class="modal-content">
       <div class="modal_header">
-        <span class="close" @click="closeModal">&times;</span>
+        <span class="close" @click="close">&times;</span>
       </div>
       <div class="modal_body">
         <!--Détail du modal-->
@@ -24,41 +24,30 @@
 import { defineProps, defineEmits } from 'vue'
 
 const props = defineProps({
-  project: {
-    type: Object,
+  isOpenModal: {
+    type: Boolean,
     required: true
+  },
+  image: {
+    type: Object
   }
 })
 
 //Emit permet à un composant de spécifier quels événements il émet ainsi que les arguments qu'il prend
-const { emit } = defineEmits()
+const emit = defineEmits(['close'])
 
-//Sélection du Projet
-//la valeur nulle est utilisée pour l'état initial où le modal n'est pas affiché
-const selectedProject = ref(null)
-
-//Ouverture du Modal
-const openModal = (project) => {
-  selectedProject.value = project
+//Fermeture du Modal
+function closeModal() {
+  emit('close')
 }
 
 //Gestionnaire d'événement pour télécharger le projet
 const handleDownload = () => {
-  if (props.project.downloadLink) {
-    window.location.href = props.project.downloadLink
+  if (props.projects.downloadLink) {
+    window.location.href = props.projects.downloadLink
   } else {
     alert('Lien de téléchargement introuvable pour ce projet')
   }
-}
-
-//Fermeture du Modal si l'on clique sur le bouton/Span
-const closeModal = () => {
-  selectedProject.value = null
-}
-
-//Fermeture du Modal si l'on clique en dehors du modal
-const handleOutsideClick = (event) => {
-  selectedProject.value = null
 }
 </script>
 
@@ -90,10 +79,5 @@ const handleOutsideClick = (event) => {
 .modal-content {
   background-color: whitesmoke;
   padding: 20px;
-}
-
-#modalProject {
-  width: 100px;
-  height: 150px;
 }
 </style>
