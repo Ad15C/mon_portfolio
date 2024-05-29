@@ -32,5 +32,6 @@ main {
   display: flex;
   flex-direction: row;
   justify-content: baseline;
+  align-items: flex-start;
 }
 </style>
