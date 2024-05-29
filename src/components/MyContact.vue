@@ -1,5 +1,5 @@
 <template>
-  <form @submit.prevent="validateInfo" id="myForm" method="post">
+  <form @submit.prevent="validateInfo" id="myForm" method="post" onsubmit="formSubmit()">
     <h3>Pour toutes informations, remplissez le formulaire ci-dessous.</h3>
 
     <br /><br />
@@ -19,7 +19,8 @@
 
     <!-- Affichage des messages d'erreur ou de succès-->
     <div v-if="errorMessages">Veuillez remplir tous les champs</div>
-    <div v-if="successMessage">Tous les champs ont été correctement remplis</div>
+    <div v-if="successMessage">Votre message a été envoyé</div>
+    <div v-if="valide">"Tous les champs sont remplis"</div>
 
     <button type="submit" value="submit">Envoyer</button>
   </form>
@@ -38,6 +39,7 @@ let user = ref({
 
 let errorMessages = ref(false)
 let successMessage = ref('')
+let valide = ref('')
 
 //Fonction pour valider les Informations du Formulaire de Contact
 function validateInfo() {
@@ -48,10 +50,10 @@ function validateInfo() {
     !user.value.yourMessages
   ) {
     errorMessages = true
-    successMessage = false
+    valide = false
   } else {
     errorMessages = false
-    successMessage = true
+    valide = true
   }
 
   //Réinitialisation des champs du formulaire
@@ -61,26 +63,18 @@ function validateInfo() {
       (user.value.yourMail = ''),
       (user.value.yourMessages = ''),
       (successMessage.value = '') //Effacer le message après un court délai
-  }, 2000)(
-    //Initialisation EMAILJS;
-    function () {
-      emailjs.init(import.meta.env.VITE_EMAILJS_PUBLIC_KEY)
-    }
-  )
+  }, 2000)
 
-  let content = {
-    to_name: 'Adeline',
-    from_firstName: user.form.firstName,
-    from_lastName: user.value.lastName,
-    from_mail: user.value.yourMail,
-    message: user.value.yourMessages
-  }
+  //Initialisation EMAILJS;
+  ;(function () {
+    emailjs.init(import.meta.env.VITE_EMAILJS_PUBLIC_KEY)
+  })
 
   serviceID = import.meta.env.VITE_EMAIL_SERVICE_ID
   templateID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID
 
   //Soumission du formulaire
-  emailjs.sendForm('serviceID', 'templateID', content),
+  emailjs.sendForm('serviceID', 'templateID', user),
     then((response) => {
       console.log('Success', successMessage)
     })

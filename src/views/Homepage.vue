@@ -3,6 +3,7 @@
   <Main />
   <MyProjects />
   <MyContact />
+
   <MyFooter />
 </template>
 
