@@ -19,13 +19,14 @@
 
     <!-- Affichage des messages d'erreur ou de succès-->
     <div v-if="errorMessages">Veuillez remplir tous les champs</div>
-    <div v-if="successMessage">{{ successMessage }}</div>
+    <div v-if="successMessage">Tous les champs ont été correctement remplis</div>
 
     <button type="submit" value="submit">Envoyer</button>
   </form>
 </template>
 
 <script setup>
+import emailjs from '@emailjs/browser'
 import { ref } from 'vue'
 
 let user = ref({
@@ -47,10 +48,10 @@ function validateInfo() {
     !user.value.yourMessages
   ) {
     errorMessages = true
-    successMessage = ''
+    successMessage = false
   } else {
     errorMessages = false
-    successMessage = 'Votre message a été envoyé avec succès'
+    successMessage = true
   }
 
   //Réinitialisation des champs du formulaire
@@ -60,7 +61,32 @@ function validateInfo() {
       (user.value.yourMail = ''),
       (user.value.yourMessages = ''),
       (successMessage.value = '') //Effacer le message après un court délai
-  }, 2000)
+  }, 2000)(
+    //Initialisation EMAILJS;
+    function () {
+      emailjs.init(import.meta.env.VITE_EMAILJS_PUBLIC_KEY)
+    }
+  )
+
+  let content = {
+    to_name: 'Adeline',
+    from_firstName: user.form.firstName,
+    from_lastName: user.value.lastName,
+    from_mail: user.value.yourMail,
+    message: user.value.yourMessages
+  }
+
+  serviceID = import.meta.env.VITE_EMAIL_SERVICE_ID
+  templateID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID
+
+  //Soumission du formulaire
+  emailjs.sendForm('serviceID', 'templateID', content),
+    then((response) => {
+      console.log('Success', successMessage)
+    })
+  ;(error) => {
+    console.log('Failed', errorMessages)
+  }
 }
 </script>
 
