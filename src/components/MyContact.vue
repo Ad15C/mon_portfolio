@@ -1,5 +1,5 @@
 <template>
-  <form @submit.prevent="validateInfo" id="myForm" method="post" onsubmit="formSubmit()">
+  <form @submit.prevent="sendForm" id="myForm" method="post">
     <h3>Pour toutes informations, remplissez le formulaire ci-dessous.</h3>
 
     <br /><br />
@@ -17,10 +17,9 @@
     <label for="yourMessages">Votre Message:</label>
     <textarea id="yourMessages" v-model.trim="user.yourMessages" required /><br />
 
-    <!-- Affichage des messages d'erreur ou de succès-->
-    <div v-if="errorMessages">Veuillez remplir tous les champs</div>
-    <div v-if="successMessage">Votre message a été envoyé</div>
-    <div v-if="valide">"Tous les champs sont remplis"</div>
+    <!--pour l'import des données EmailJs-->
+    <div v-if="serviceID">{{ serviceID }}</div>
+    <div v-if="templateID">{{ templateID }}</div>
 
     <button type="submit" value="submit">Envoyer</button>
   </form>
@@ -29,6 +28,7 @@
 <script setup>
 import emailjs from '@emailjs/browser'
 import { ref } from 'vue'
+import viteConfig from '../../vite.config'
 
 let user = ref({
   lastName: '',
@@ -37,50 +37,20 @@ let user = ref({
   yourMessages: ''
 })
 
-let errorMessages = ref(false)
-let successMessage = ref('')
-let valide = ref('')
+//Envoi du Formulaire
+function sendForm() {
+  //Initialisation EMAILJS
+  emailjs.init(import.meta.env.VITE_EMAILJS_PUBLIC_KEY)
 
-//Fonction pour valider les Informations du Formulaire de Contact
-function validateInfo() {
-  if (
-    !user.value.lastName ||
-    !user.value.firstName ||
-    !user.value.yourMail ||
-    !user.value.yourMessages
-  ) {
-    errorMessages = true
-    valide = false
-  } else {
-    errorMessages = false
-    valide = true
-  }
-
-  //Réinitialisation des champs du formulaire
-  setTimeout(() => {
-    ;(user.value.lastName = ''),
-      (user.value.firstName = ''),
-      (user.value.yourMail = ''),
-      (user.value.yourMessages = ''),
-      (successMessage.value = '') //Effacer le message après un court délai
-  }, 2000)
-
-  //Initialisation EMAILJS;
-  ;(function () {
-    emailjs.init(import.meta.env.VITE_EMAILJS_PUBLIC_KEY)
-  })
-
-  serviceID = import.meta.env.VITE_EMAIL_SERVICE_ID
-  templateID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID
+  const serviceID = import.meta.env.VITE_EMAIL_SERVICE_ID
+  const templateID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID
 
   //Soumission du formulaire
-  emailjs.sendForm('serviceID', 'templateID', user),
-    then((response) => {
-      console.log('Success', successMessage)
-    })
-  ;(error) => {
-    console.log('Failed', errorMessages)
-  }
+  emailjs.sendForm(serviceID, templateID, user),
+    then((res) => {
+      alert('Votre message a bien été envoyé')
+      form.value.reset()
+    }).catch()
 }
 </script>
 
