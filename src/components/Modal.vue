@@ -37,7 +37,7 @@ const props = defineProps({
 const emit = defineEmits(['close'])
 
 //Fermeture du Modal
-function closeModal() {
+function close() {
   emit('close')
 }
 

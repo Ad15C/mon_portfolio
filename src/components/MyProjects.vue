@@ -6,7 +6,7 @@
       <div v-for="(project, index) in projects" :key="index">
         <img :src="project.image" @click="openModal(project)" />
       </div>
-      <Modal v-if="isModalOpen" :project="selectedProject" @close="closeModal" />
+      <Modal :is-open-modal="isModalOpen" :project="selectedProject" @close="closeModal" />
     </div>
   </section>
 </template>

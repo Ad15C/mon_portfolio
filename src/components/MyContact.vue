@@ -1,5 +1,5 @@
 <template>
-  <form @submit.prevent="sendForm" id="myForm" method="post">
+  <form id="myForm" method="post" @submit.prevent="sendForm">
     <h3>Pour toutes informations, remplissez le formulaire ci-dessous.</h3>
 
     <br /><br />
@@ -17,10 +17,6 @@
     <label for="yourMessages">Votre Message:</label>
     <textarea id="yourMessages" v-model.trim="user.yourMessages" required /><br />
 
-    <!--pour l'import des données EmailJs-->
-    <div v-if="serviceID">{{ serviceID }}</div>
-    <div v-if="templateID">{{ templateID }}</div>
-
     <button type="submit" value="submit">Envoyer</button>
   </form>
 </template>
@@ -28,29 +24,32 @@
 <script setup>
 import emailjs from '@emailjs/browser'
 import { ref } from 'vue'
-import viteConfig from '../../vite.config'
-
-let user = ref({
-  lastName: '',
-  firstName: '',
-  yourMail: '',
-  yourMessages: ''
-})
 
 //Envoi du Formulaire
 function sendForm() {
   //Initialisation EMAILJS
-  emailjs.init(import.meta.env.VITE_EMAILJS_PUBLIC_KEY)
+  ;(function () {
+    emailjs.init(import.meta.env.VITE_EMAILJS_PUBLIC_KEY)
+  })()
+
+  let user = ref({
+    lastName: document.querySelector('#lastName'),
+    firstName: document.querySelector('#firstName'),
+    yourMail: document.querySelector('#yourMail'),
+    yourMessages: document.querySelector('#yourMessages')
+  })
 
   const serviceID = import.meta.env.VITE_EMAIL_SERVICE_ID
   const templateID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID
 
   //Soumission du formulaire
-  emailjs.sendForm(serviceID, templateID, user),
-    then((res) => {
+  emailjs
+    .sendForm(serviceID, templateID, user)
+    .then((res) => {
       alert('Votre message a bien été envoyé')
-      form.value.reset()
-    }).catch()
+      myForm.value.reset()
+    })
+    .catch()
 }
 </script>
 
