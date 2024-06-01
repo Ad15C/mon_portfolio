@@ -1,5 +1,5 @@
 <template>
-  <form id="myForm" method="post" @submit.prevent="sendForm">
+  <form id="myForm" @submit.prevent="sendForm">
     <h3>Pour toutes informations, remplissez le formulaire ci-dessous.</h3>
 
     <br /><br />
@@ -26,10 +26,10 @@ import emailjs from '@emailjs/browser'
 import { ref } from 'vue'
 
 const user =  ref({
-  lastName: document.querySelector('#lastName'),
-  firstName: document.querySelector('#firstName'),
-  yourMail: document.querySelector('#yourMail'),
-  yourMessages: document.querySelector('#yourMessages')
+  lastName: '',
+  firstName: '',
+  yourMail: '',
+  yourMessages: ''
   })
 
 //Envoi du Formulaire
@@ -38,7 +38,18 @@ function sendForm() {
   (function () {
     emailjs.init(import.meta.env.VITE_EMAILJS_PUBLIC_KEY)
   })();
- 
+
+  const serviceID = import.meta.env.VITE_EMAIL_SERVICE_ID,
+  const templateID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+
+  //Construction des paramètres pour Emailjs
+  const params = {
+      lastName: user.value.lastName,
+      firstName: user.value.firstName,
+      yourMail: user.value.yourMail,
+      yourMessages: user.value.yourMessages
+  }
+
   const test = {
     user_name: 'A',
     from_name: 'b',
@@ -46,17 +57,18 @@ function sendForm() {
     message: 'e'
   }
 
-  const serviceID = import.meta.env.VITE_EMAIL_SERVICE_ID
-  const templateID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID
 
   //Soumission du formulaire
   emailjs
-    .send(serviceID, templateID, test)
+    .send(serviceID, templateID, params, test)
     .then((res) => {
-      alert('Votre message a bien été envoyé')
-      //myForm.value.reset()
+      alert('Votre message a bien été envoyé'),
+      document.querySelector('#myForm').reset(),
     })
-    .catch()
+    .catch((error) => {
+      console.log("Erreur lors de l'envoi du formulaire", error ),
+      alert("ne erreur est survenue lors de l'envoi de votre formulaire"),
+    })
 }
 </script>
 
@@ -124,7 +136,6 @@ button {
   color: #ddd;
   padding: 12px 150px;
   margin-left: 550px;
-
   border-radius: 4px;
   cursor: pointer;
 }

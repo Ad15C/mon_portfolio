@@ -3,8 +3,8 @@
     <h3>Ci-dessous, vous trouverez les derniers projets réalisés dernièrement:</h3>
     <br />
     <div class="mes_projets">
-      <div v-for="(project, index) in projects" :key="index">
-        <img :src="project.image" @click="openModal(project)" />
+      <div v-for="(project, index) in projects" :key="index" class="project">
+        <img :src="project.src" @click="openModal(project)" class="project-image" />
       </div>
       <Modal :is-open-modal="isModalOpen" :project="selectedProject" @close="closeModal" />
     </div>
@@ -13,13 +13,15 @@
 
 <script setup>
 import { ref } from 'vue'
-
 import Modal from '@/components/Modal.vue'
+import cvImg from '@/assets/projects/cv.png'
+import commentaireDynamiqueImg from '@/assets/projects/commentaire_dynamique.png'
+import cahierChargesImg from '@/assets/cahier_des_charges.png'
 
 //Détails pour les différents projets
 const projects = ref([
   {
-    image: ' /cv.png',
+    src: cvImg,
     title: 'CV',
     date: 'Décembre 2023',
     description: 'Réalisation de CV ',
@@ -28,18 +30,17 @@ const projects = ref([
   },
 
   {
-    image: '/cahier_charges.png',
+    src: cahierChargesImg,
     title: 'Cahier des Charges',
     date: 'Décembre 2023',
     description:
       'Cahier des Charges pour La Socketterie, souhaitant faire une refonte de son site internet et un bilan de la concurrence',
     technologies: 'Word',
-
     downloadLink: 'public/cahier_des_charges.pdf'
   },
 
   {
-    image: '/commentaire_dynamique.png',
+    src: commentaireDynamiqueImg,
     title: 'Commentaire Dynamique',
     date: 'Février 2024',
     description: 'Réalisation de Commentaire Dynamique ',
@@ -72,26 +73,43 @@ const closeModal = () => {
   padding: 0;
   box-sizing: border-box;
   font-family: 'Barlow', sans-serif;
-  font-weight: 300;
-  font-style: normal;
-  font-optical-sizing: auto;
 }
 
 section {
+  padding: 20px;
+}
+
+h3 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.mes_projets {
   display: flex;
   flex-wrap: wrap;
-  flex-direction: column;
-  justify-content: baseline;
-  align-content: space-between;
+  justify-content: center;
+  gap: 20px; /* Espace entre les projets */
 }
 
-div {
-  display: flex;
-  flex-direction: row;
+.project {
+  margin: 10px;
+  text-align: center;
+  flex: 1 1 200px; /* Flex-grow, flex-shrink, and flex-basis */
+  max-width: 200px;
 }
 
-img {
-  width: 200px;
-  height: 300px;
+.project-image {
+  width: 100%;
+  height: auto;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+
+.project-image:hover {
+  transform: scale(1.05);
+}
+
+.project h3 {
+  margin-top: 10px;
 }
 </style>
