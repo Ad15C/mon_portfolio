@@ -4,6 +4,7 @@ import MyContact from '@/views/MyContact.vue'
 import MyProject from '@/views/MyProject.vue'
 import NotFound from '@/views/NotFound.vue'
 
+//Personnalisation des routes
 const router = createRouter({
   history: createWebHistory(),
   routes: [
@@ -13,5 +14,6 @@ const router = createRouter({
     { path: '/:pathMatch(.*)*', name: 'NotFound', component: () => import('@/views/NotFound.vue') }
   ]
 })
+
 //Ajout de l'exportation par défaut
 export default router
