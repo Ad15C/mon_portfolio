@@ -7,7 +7,7 @@
     <nav>
       <a href="Accueil">Accueil</a>
       <a href="Projets">Projets</a>
-      <a href="Contact">Contact</a>
+      <a href="#myForm">Contact</a>
     </nav>
   </header>
 </template>
