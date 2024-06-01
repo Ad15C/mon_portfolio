@@ -4,24 +4,20 @@
       <img alt="logo" class="logo" src="../assets/logos/Logo_AC.png" />
       <h1>Bienvenue sur mon Portfolio</h1>
     </section>
+    <!--Barre de navigation-->
     <nav>
       <ul class="nav_links">
-        <li>
-          <RouterLink to="/" class="nav_link">
-            <a href="/">Accueil</a>
-          </RouterLink>
-        </li>
-        <li>
-          <RouterLink to="/MesProjets" class="nav_link">
-            <a href="/">Mes Projets</a>
-          </RouterLink>
-        </li>
-        <li>
-          <RouterLink to="/Contact" class="nav_link">
-            <a href="/">Contact</a>
-          </RouterLink>
-        </li>
+        <RouterLink to="/" class="nav_link">
+          <a href="/">Accueil</a>
+        </RouterLink>
 
+        <RouterLink to="/MesProjets" class="nav_link">
+          <a href="MyProject">Mes Projets</a>
+        </RouterLink>
+
+        <RouterLink to="/Contact" class="nav_link">
+          <a href="MyContact">Contact</a>
+        </RouterLink>
       </ul>
     </nav>
   </header>
@@ -48,7 +44,7 @@ header {
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  width:auto;
+  width: auto;
   height: auto;
   padding-top: 40px;
   padding-bottom: 40px;
@@ -72,7 +68,7 @@ section {
 nav {
   height: 50px;
   width: 1500px;
-  word-spacing: 50%;
+  word-spacing: 70%;
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;

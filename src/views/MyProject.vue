@@ -14,14 +14,13 @@
 <script setup>
 import { ref } from 'vue'
 import Modal from '@/components/Modal.vue'
-import cvImg from '@/assets/projects/cv.png'
-import commentaireDynamiqueImg from '@/assets/projects/commentaire_dynamique.png'
-import cahierChargesImg from '@/assets/cahier_des_charges.png'
+
+const project = ref(null)
 
 //Détails pour les différents projets
 const projects = ref([
   {
-    src: cvImg,
+    src: 'public/cv.png',
     title: 'CV',
     date: 'Décembre 2023',
     description: 'Réalisation de CV ',
@@ -30,7 +29,7 @@ const projects = ref([
   },
 
   {
-    src: cahierChargesImg,
+    src: 'public/commentaire_dynamique.png',
     title: 'Cahier des Charges',
     date: 'Décembre 2023',
     description:
@@ -40,7 +39,7 @@ const projects = ref([
   },
 
   {
-    src: commentaireDynamiqueImg,
+    src: 'public/cahier_charges.png',
     title: 'Commentaire Dynamique',
     date: 'Février 2024',
     description: 'Réalisation de Commentaire Dynamique ',

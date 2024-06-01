@@ -1,5 +1,6 @@
 <template>
   <footer>
+    <!--Logos pour les réseaux professionnels-->
     <div class="Networks">
       <div class="Linkedin">
         <a href="www.linkedin.com/in/adelinecanon" target="_blank">
@@ -17,7 +18,7 @@
         </a>
       </div>
     </div>
-
+  <!--Date Dernière MàJ-->
     <div class="MaJ">
       <h5>Dernière mise à jour le <time datetime="2024-06-01"> Juin 2024</time></h5>
     </div>
