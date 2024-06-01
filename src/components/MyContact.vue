@@ -25,29 +25,36 @@
 import emailjs from '@emailjs/browser'
 import { ref } from 'vue'
 
+const user =  ref({
+  lastName: document.querySelector('#lastName'),
+  firstName: document.querySelector('#firstName'),
+  yourMail: document.querySelector('#yourMail'),
+  yourMessages: document.querySelector('#yourMessages')
+  })
+
 //Envoi du Formulaire
 function sendForm() {
   //Initialisation EMAILJS
-  ;(function () {
+  (function () {
     emailjs.init(import.meta.env.VITE_EMAILJS_PUBLIC_KEY)
-  })()
-
-  let user = ref({
-    lastName: document.querySelector('#lastName'),
-    firstName: document.querySelector('#firstName'),
-    yourMail: document.querySelector('#yourMail'),
-    yourMessages: document.querySelector('#yourMessages')
-  })
+  })();
+ 
+  const test = {
+    user_name: 'A',
+    from_name: 'b',
+    user_email: 'c',
+    message: 'e'
+  }
 
   const serviceID = import.meta.env.VITE_EMAIL_SERVICE_ID
   const templateID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID
 
   //Soumission du formulaire
   emailjs
-    .sendForm(serviceID, templateID, user)
+    .send(serviceID, templateID, test)
     .then((res) => {
       alert('Votre message a bien été envoyé')
-      myForm.value.reset()
+      //myForm.value.reset()
     })
     .catch()
 }
