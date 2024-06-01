@@ -5,9 +5,24 @@
       <h1>Bienvenue sur mon Portfolio</h1>
     </section>
     <nav>
-      <a href="Accueil">Accueil</a>
-      <a href="Projets">Projets</a>
-      <a href="#myForm">Contact</a>
+      <ul class="nav_links">
+        <li>
+          <RouterLink to="/" class="nav_link">
+            <a href="/">Accueil</a>
+          </RouterLink>
+        </li>
+        <li>
+          <RouterLink to="/MesProjets" class="nav_link">
+            <a href="/">Mes Projets</a>
+          </RouterLink>
+        </li>
+        <li>
+          <RouterLink to="/Contact" class="nav_link">
+            <a href="/">Contact</a>
+          </RouterLink>
+        </li>
+
+      </ul>
     </nav>
   </header>
 </template>
@@ -33,8 +48,8 @@ header {
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  width: 1500px;
-  height: 400px;
+  width:auto;
+  height: auto;
   padding-top: 40px;
   padding-bottom: 40px;
   margin: 0px;

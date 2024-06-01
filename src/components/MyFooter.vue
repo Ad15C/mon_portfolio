@@ -2,7 +2,7 @@
   <footer>
     <div class="Networks">
       <div class="Linkedin">
-        <a href="www.linkedin.com/in/adelinecanon">
+        <a href="www.linkedin.com/in/adelinecanon" target="_blank">
           <img
             src="../assets/logos/logo_linkedin.png"
             alt="Profil_LinkedIn"
@@ -12,14 +12,14 @@
         </a>
       </div>
       <div class="GitHub">
-        <a href="https://github.com/Ad15C">
+        <a href="https://github.com/Ad15C" target="_blank">
           <img src="..//assets/logos/signe-github.png" alt="Profil_GitHub" width="25" height="25" />
         </a>
       </div>
     </div>
 
     <div class="MaJ">
-      <h5>Dernière mise à jour le <time datetime="2024-05-14"> Mai 2024</time></h5>
+      <h5>Dernière mise à jour le <time datetime="2024-06-01"> Juin 2024</time></h5>
     </div>
   </footer>
 </template>

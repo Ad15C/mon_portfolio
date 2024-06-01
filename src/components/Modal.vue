@@ -6,7 +6,7 @@
       </div>
       <div class="modal_body">
         <!--Détail du modal-->
-        <img :src="project.image" alt="Project Image" id="modalProject" />
+        <img :src="project.src" alt="Project Image" id="modalProject" />
         <h3 id="projectName">{{ project.title }}</h3>
         <p>{{ project.date }}</p>
         <p>{{ project.description }}</p>
@@ -28,9 +28,10 @@ const props = defineProps({
     type: Boolean,
     required: true
   },
-  image: {
-    type: Object
-  }
+  project: {
+    type: Object,
+    required: true
+  },
 })
 
 //Emit permet à un composant de spécifier quels événements il émet ainsi que les arguments qu'il prend
@@ -44,7 +45,7 @@ function close() {
 //Gestionnaire d'événement pour télécharger le projet
 const handleDownload = () => {
   if (props.projects.downloadLink) {
-    window.location.href = props.projects.downloadLink
+    window.open(props.project.downloadLink, '_blank')
   } else {
     alert('Lien de téléchargement introuvable pour ce projet')
   }
@@ -74,10 +75,60 @@ const handleDownload = () => {
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.5);
+  overflow: auto;
 }
 
 .modal-content {
   background-color: whitesmoke;
   padding: 20px;
+  border-radius: 10px;
+  max-width: 600px;
+  width: 90%;
+  max-height: 80%;
+  overflow-y: auto;
+}
+
+.modal_header {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.close {
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.modal_body {
+  text-align: center;
+}
+
+.modal_body img {
+  max-width: 100%;
+  height: auto;
+  max-height: 300px; /* Limite la hauteur de l'image */
+  margin-bottom: 20px; /* Ajoute de l'espace sous l'image */
+}
+
+.modal_body h3 {
+  margin-bottom: 10px;
+}
+
+.modal_footer {
+  text-align: center;
+  margin-top: 20px;
+}
+
+#downloadButton {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+#downloadButton:hover {
+  background-color: #0056b3;
 }
 </style>
