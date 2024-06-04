@@ -1,4 +1,5 @@
 <template>
+ <main>
   <section id="Projets">
     <h3>Ci-dessous, vous trouverez les derniers projets réalisés dernièrement:</h3>
     <br />
@@ -9,17 +10,14 @@
       <Modal :is-open-modal="isModalOpen" :project="selectedProject" @close="closeModal" />
     </div>
   </section>
+ </main>
 </template>
 
 <script setup>
 import { ref } from 'vue'
 import Modal from '@/components/Modal.vue'
 
-//Sélection du Projet
-//la valeur nulle est utilisée pour l'état initial où le modal n'est pas affiché
-let selectedProject = ref(null)
-
-let isModalOpen = ref(false)
+const project = ref()
 
 //Détails pour les différents projets
 const projects = ref([
@@ -55,6 +53,12 @@ const projects = ref([
   }
 ])
 
+//Sélection du Projet
+//la valeur nulle est utilisée pour l'état initial où le modal n'est pas affiché
+let selectedProject = ref(null)
+
+let isModalOpen = ref(false)
+
 //Ouverture du Modal
 const openModal = (project) => {
   selectedProject.value = project,
@@ -63,9 +67,25 @@ const openModal = (project) => {
 
 //Fermeture du Modal
 const closeModal = () => {
-  selectedProject.value = null,
+  selectedProject.value = project,
   isModalOpen = false
 }
+
+//Fermeture en cliquant en dehors du modal
+const clickOutside = (event) => {
+  if (isModalOpen && event.target.closest('.modal')) {
+    closeModal()
+  }
+}
+document.addEventListener('click', clickOutside)
+
+//Fermeture en appuyant sur Escape
+const handleEscape = (event) => {
+  if (isModalOpen && event.key) {
+    closeModal()
+  }
+}
+document.addEventListener('keydown', handleEscape)
 </script>
 
 <style scoped>

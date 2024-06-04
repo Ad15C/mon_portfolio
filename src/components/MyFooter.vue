@@ -2,23 +2,15 @@
   <footer>
     <!--Logos pour les réseaux professionnels-->
     <div class="Networks">
-      <div class="Linkedin">
-        <a href="www.linkedin.com/in/adelinecanon" target="_blank">
-          <img
-            src="../assets/logos/logo_linkedin.png"
-            alt="Profil_LinkedIn"
-            width="25"
-            height="25"
-          />
-        </a>
-      </div>
-      <div class="GitHub">
-        <a href="https://github.com/Ad15C" target="_blank">
-          <img src="..//assets/logos/signe-github.png" alt="Profil_GitHub" width="25" height="25" />
-        </a>
-      </div>
+      <a href="www.linkedin.com/in/adelinecanon" target="_blank">
+        <img src="../assets/logos/logo_linkedin.png" alt="Profil_LinkedIn" width="25" height="25" />
+      </a>
+
+      <a href="https://github.com/Ad15C" target="_blank">
+        <img src="..//assets/logos/signe-github.png" alt="Profil_GitHub" width="25" height="25" />
+      </a>
     </div>
-  <!--Date Dernière MàJ-->
+    <!--Date Dernière MàJ-->
     <div class="MaJ">
       <h5>Dernière mise à jour le <time datetime="2024-06-01"> Juin 2024</time></h5>
     </div>
@@ -47,7 +39,6 @@ footer {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  align-content: space-evenly;
   width: 100%;
   height: 100px;
   row-gap: 10px;
@@ -58,5 +49,7 @@ footer {
   flex-wrap: wrap;
   flex-direction: row;
   justify-content: center;
+  align-items: center;
+  align-content: space-between;
 }
 </style>

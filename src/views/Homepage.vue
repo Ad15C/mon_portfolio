@@ -10,6 +10,8 @@
       </p>
       <br />
     </section>
+
+    <a href="#">Aller en haut de page</a>
   </main>
 </template>
 
