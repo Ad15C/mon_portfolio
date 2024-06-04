@@ -15,11 +15,16 @@
 import { ref } from 'vue'
 import Modal from '@/components/Modal.vue'
 
-const project = ref(null)
+//Sélection du Projet
+//la valeur nulle est utilisée pour l'état initial où le modal n'est pas affiché
+let selectedProject = ref(null)
+
+let isModalOpen = ref(false)
 
 //Détails pour les différents projets
 const projects = ref([
   {
+    id: 1,
     src: 'public/cv.png',
     title: 'CV',
     date: 'Décembre 2023',
@@ -29,7 +34,8 @@ const projects = ref([
   },
 
   {
-    src: 'public/commentaire_dynamique.png',
+    id: 2,
+    src: 'public/cahier_charges.png',
     title: 'Cahier des Charges',
     date: 'Décembre 2023',
     description:
@@ -39,28 +45,26 @@ const projects = ref([
   },
 
   {
-    src: 'public/cahier_charges.png',
+    id: 3,
+    src: 'public/commentaire_dynamique.png',
     title: 'Commentaire Dynamique',
     date: 'Février 2024',
     description: 'Réalisation de Commentaire Dynamique ',
-    technologies: 'HTML, CSS, GitHub, VSCode, JavaScript'
+    technologies: 'HTML, CSS, GitHub, VSCode, JavaScript',
+    downloadLink: 'https://github.com/Ad15C/mon_commentaire.git'
   }
 ])
 
-//Sélection du Projet
-//la valeur nulle est utilisée pour l'état initial où le modal n'est pas affiché
-let selectedProject = ref(null)
-
-let isModalOpen = ref(false)
-
 //Ouverture du Modal
-const openModal = () => {
-  ;(selectedProject.value = project), (isModalOpen = true)
+const openModal = (project) => {
+  selectedProject.value = project,
+  isModalOpen = true
 }
 
 //Fermeture du Modal
 const closeModal = () => {
-  ;(selectedProject.value = null), (isModalOpen = false)
+  selectedProject.value = null,
+  isModalOpen = false
 }
 </script>
 

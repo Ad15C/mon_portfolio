@@ -28,9 +28,10 @@ const props = defineProps({
     type: Boolean,
     required: true
   },
+
   project: {
     type: Object,
-    required: true
+    required: true,
   },
 })
 
@@ -42,9 +43,10 @@ function close() {
   emit('close')
 }
 
+
 //Gestionnaire d'événement pour télécharger le projet
 const handleDownload = () => {
-  if (props.projects.downloadLink) {
+  if (props.project.downloadLink) {
     window.open(props.project.downloadLink, '_blank')
   } else {
     alert('Lien de téléchargement introuvable pour ce projet')
