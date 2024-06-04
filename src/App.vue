@@ -3,11 +3,9 @@
     <!--Importation des Pages-->
     <MyHeader />
 
-    <main>
-      <Homepage />
-      <MyProject />
-      <MyContact />
-    </main>
+    <Homepage />
+    <MyProject />
+    <MyContact />
 
     <RouterView />
 

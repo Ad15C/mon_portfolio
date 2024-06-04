@@ -7,17 +7,21 @@
     <!--Barre de navigation-->
     <nav>
       <ul class="nav_links">
-        <RouterLink to="/" class="nav_link">
-          <a href="/">Accueil</a>
-        </RouterLink>
-
-        <RouterLink to="/MesProjets" class="nav_link">
-          <a href="MyProject">Mes Projets</a>
-        </RouterLink>
-
-        <RouterLink to="/Contact" class="nav_link">
-          <a href="MyContact">Contact</a>
-        </RouterLink>
+        <li>
+          <RouterLink to="/" class="nav_link">
+            <a href="/">Accueil</a>
+          </RouterLink>
+        </li>
+        <li>
+          <RouterLink to="/MesProjets" class="nav_link">
+            <a href="MyProject">Mes Projets</a>
+          </RouterLink>
+        </li>
+        <li>
+          <RouterLink to="/Contact" class="nav_link">
+            <a href="MyContact">Contact</a>
+          </RouterLink>
+        </li>
       </ul>
     </nav>
   </header>
@@ -51,6 +55,11 @@ header {
   margin: 0px;
 }
 
+h1 {
+  margin-top: 20px;
+  font-size: x-large;
+}
+
 .logo {
   height: 150px;
   width: 150px;
@@ -64,17 +73,37 @@ section {
   justify-content: center;
   align-items: center;
 }
-
 nav {
-  height: 50px;
-  width: 1500px;
-  word-spacing: 70%;
   display: flex;
   flex-direction: row;
-  justify-content: space-evenly;
-  align-items: center;
+  margin-top: 20px;
+}
+
+ul {
+  width: 1500px;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
   background-color: #f2f2f2;
-  text-decoration: underline;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
   font-size: large;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: #333;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+li a:hover {
+  background-color: rgb(182, 180, 180);
 }
 </style>
