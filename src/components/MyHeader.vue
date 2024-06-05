@@ -57,12 +57,13 @@ header {
 
 h1 {
   margin-top: 20px;
-  font-size: x-large;
+  font-size: 40px;
+  font: bold;
 }
 
 .logo {
-  height: 150px;
-  width: 150px;
+  height: 175px;
+  width: 175px;
   display: flex;
   flex-direction: column;
 }
@@ -74,6 +75,7 @@ section {
   align-items: center;
 }
 nav {
+  width: 1216px;
   display: flex;
   flex-direction: row;
   margin-top: 20px;
@@ -89,7 +91,7 @@ ul {
   display: flex;
   flex-direction: row;
   justify-content: center;
-  font-size: large;
+  font-size: 22px;
 }
 
 li {

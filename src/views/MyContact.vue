@@ -1,5 +1,4 @@
 <template>
-  <main>
   <form id="myForm" @submit.prevent="sendForm">
     <h3>Pour toutes informations, remplissez le formulaire ci-dessous.</h3>
 
@@ -21,26 +20,27 @@
     <!--Bouton de Soumission-->
     <button type="submit" value="submit">Envoyer</button>
   </form>
-  </main>
+  <br />
+  <a href="#">Aller en haut de page</a>
 </template>
 
 <script setup>
 import emailjs from '@emailjs/browser'
 import { ref } from 'vue'
 
-const user =  ref({
+const user = ref({
   lastName: '',
   firstName: '',
   yourMail: '',
   yourMessages: ''
-  })
+})
 
 //Envoi du Formulaire
 function sendForm() {
   //Initialisation EMAILJS
   emailjs.init(import.meta.env.VITE_EMAILJS_PUBLIC_KEY)
 
-//Données d'EmailJs
+  //Données d'EmailJs
   const serviceID = import.meta.env.VITE_EMAIL_SERVICE_ID
   const templateID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID
 
@@ -52,18 +52,16 @@ function sendForm() {
     message: user.value.yourMessages
   }
 
-
   //Soumission du formulaire
   emailjs
     .send(serviceID, templateID, test)
     .then((res) => {
-      alert('Votre message a bien été envoyé'),
-      document.querySelector('#myForm').reset()
+      alert('Votre message a bien été envoyé'), document.querySelector('#myForm').reset()
     })
-    
+
     .catch((error) => {
-      console.log("Erreur lors de l'envoi du formulaire", error ),
-      alert("ne erreur est survenue lors de l'envoi de votre formulaire")
+      console.log("Erreur lors de l'envoi du formulaire", error),
+        alert("ne erreur est survenue lors de l'envoi de votre formulaire")
     })
 }
 </script>
@@ -130,9 +128,19 @@ button {
   background-color: #172432;
   border: none;
   color: #ddd;
+  margin-left: 435px;
   padding: 12px 150px;
-  margin-left: 550px;
+
   border-radius: 4px;
   cursor: pointer;
+}
+
+a {
+  display: flex;
+  justify-content: right;
+}
+
+a:hover {
+  color: #172432;
 }
 </style>
