@@ -1,18 +1,14 @@
 <template>
-  <main>
-    <!--Section A Propos-->
-    <section id="A_propos">
-      <p>
-        Je m'appelle Adeline et j'aime tout ce qui se rapporte à la technologie, et suis également
-        passsionnée de sport. Mon but est de vous permettre à réaliser vos projets, que ce soit un
-        site web, une application mobile, etc.<br />
-        Je suis prête à relever les défis qui s'offrent à moi.
-      </p>
-      <br />
-    </section>
-
-    <a href="#">Aller en haut de page</a>
-  </main>
+  <!--Section A Propos-->
+  <section id="A_propos">
+    <p>
+      Je m'appelle Adeline et j'aime tout ce qui se rapporte à la technologie, et suis également
+      passsionnée de sport. Mon but est de vous permettre à réaliser vos projets, que ce soit un
+      site web, une application mobile.<br />
+      Je suis prête à relever les défis qui s'offrent à moi.
+    </p>
+    <br />
+  </section>
 </template>
 
 <script setup></script>
@@ -30,10 +26,25 @@
   font-optical-sizing: auto;
 }
 
-main {
+section {
   display: flex;
   flex-direction: row;
-  justify-content: baseline;
-  align-items: flex-start;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  font-size: 16px;
+}
+
+p {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.a {
+  color: #f2f2f2;
+}
+
+.a:hover {
+  color: #f2f2f2;
 }
 </style>

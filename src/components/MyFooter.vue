@@ -2,7 +2,7 @@
   <footer>
     <!--Logos pour les réseaux professionnels-->
     <div class="Networks">
-      <a href="www.linkedin.com/in/adelinecanon" target="_blank">
+      <a href="http://www.linkedin.com/in/adelinecanon" target="_blank">
         <img src="../assets/logos/logo_linkedin.png" alt="Profil_LinkedIn" width="25" height="25" />
       </a>
 
@@ -50,6 +50,10 @@ footer {
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  align-content: space-between;
+  gap: 10px;
+}
+
+a:hover {
+  background-color: #aaaaaa;
 }
 </style>

@@ -1,5 +1,4 @@
 <template>
- <main>
   <section id="Projets">
     <h3>Ci-dessous, vous trouverez les derniers projets réalisés dernièrement:</h3>
     <br />
@@ -10,7 +9,6 @@
       <Modal :is-open-modal="isModalOpen" :project="selectedProject" @close="closeModal" />
     </div>
   </section>
- </main>
 </template>
 
 <script setup>
@@ -61,14 +59,12 @@ let isModalOpen = ref(false)
 
 //Ouverture du Modal
 const openModal = (project) => {
-  selectedProject.value = project,
-  isModalOpen = true
+  ;(selectedProject.value = project), (isModalOpen = true)
 }
 
 //Fermeture du Modal
 const closeModal = () => {
-  selectedProject.value = project,
-  isModalOpen = false
+  ;(selectedProject.value = project), (isModalOpen = false)
 }
 
 //Fermeture en cliquant en dehors du modal
@@ -99,11 +95,13 @@ document.addEventListener('keydown', handleEscape)
 }
 
 section {
-  padding: 20px;
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
 
 h3 {
-  text-align: center;
+  padding-left: 20px;
+  text-align: left;
   margin-bottom: 20px;
 }
 
@@ -111,7 +109,7 @@ h3 {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 20px; /* Espace entre les projets */
+  gap: 50px; /* Espace entre les projets */
 }
 
 .project {
