@@ -6,7 +6,12 @@
       <RouterLink to="/">Accueil</RouterLink>
     </p>
     <br />
-    <img src="../assets/not_found.jpg" title="Page Not Found" width="300" height="300" /><br />
+    <img
+      src="../assets/favicon/not_found.jpg"
+      title="Page Not Found"
+      width="300"
+      height="300"
+    /><br />
   </div>
 </template>
 

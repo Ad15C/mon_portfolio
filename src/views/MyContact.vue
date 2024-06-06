@@ -21,7 +21,13 @@
     <button type="submit" value="submit">Envoyer</button>
   </form>
   <br />
-  <a href="#">Aller en haut de page</a>
+  <!--Fléche pour remonter en haut de la page-->
+  <div id="goBackUp">
+    <!--Uitilisation du href pour que ça remonte en haut de la page automatiquement-->
+    <a href="#">
+      <img src="../assets/favicon/fleche.png" alt="Remonter en Haut" width="25" height="30" />
+    </a>
+  </div>
 </template>
 
 <script setup>
@@ -142,5 +148,26 @@ a {
 
 a:hover {
   color: #172432;
+}
+
+#goBackUp {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 80px;
+  height: 60px;
+  cursor: pointer;
+  display: flex;
+  z-index: 1000; /*au dessus des autres éléments*/
+}
+
+#goBackUp img {
+  width: 100;
+  height: 100;
+}
+
+#goBackUp:hover img {
+  transform: scale(1.1); /*pour agrandir légérement au survol*/
+  transition: transform 0.2s;
 }
 </style>

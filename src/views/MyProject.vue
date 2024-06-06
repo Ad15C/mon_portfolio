@@ -59,12 +59,14 @@ let isModalOpen = ref(false)
 
 //Ouverture du Modal
 const openModal = (project) => {
-  ;(selectedProject.value = project), (isModalOpen = true)
+  selectedProject.value = project,
+  isModalOpen = true
 }
 
 //Fermeture du Modal
 const closeModal = () => {
-  ;(selectedProject.value = project), (isModalOpen = false)
+  selectedProject.value = project,
+  isModalOpen = false
 }
 
 //Fermeture en cliquant en dehors du modal
