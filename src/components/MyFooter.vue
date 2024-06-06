@@ -7,12 +7,12 @@
       </a>
 
       <a href="https://github.com/Ad15C" target="_blank">
-        <img src="..//assets/logos/signe-github.png" alt="Profil_GitHub" width="25" height="25" />
+        <img src="../assets/logos/signe-github.png" alt="Profil_GitHub" width="25" height="25" />
       </a>
     </div>
     <!--Date Dernière MàJ-->
     <div class="MaJ">
-      <h5>Dernière mise à jour le <time datetime="2024-06-01"> Juin 2024</time></h5>
+      <h5>Dernière mise à jour le <time datetime="2024-06-06"> Juin 2024</time></h5>
     </div>
   </footer>
 </template>

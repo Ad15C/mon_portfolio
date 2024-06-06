@@ -1,8 +1,4 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import Homepage from '@/views/Homepage.vue'
-import MyContact from '@/views/MyContact.vue'
-import MyProject from '@/views/MyProject.vue'
-import NotFound from '@/views/NotFound.vue'
 
 //Personnalisation des routes
 const router = createRouter({

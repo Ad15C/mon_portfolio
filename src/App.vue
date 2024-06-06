@@ -4,7 +4,6 @@
     <MyHeader />
     <main>
       <RouterView />
-
       <MyProject />
       <MyContact />
     </main>
@@ -16,7 +15,6 @@
 import { RouterView } from 'vue-router'
 import MyHeader from './components/MyHeader.vue'
 import MyFooter from './components/MyFooter.vue'
-
 import MyProject from './views/MyProject.vue'
 import MyContact from './views/MyContact.vue'
 </script>
