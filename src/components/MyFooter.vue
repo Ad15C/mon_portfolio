@@ -1,5 +1,13 @@
 <template>
   <footer>
+    <!--Fléche pour remonter en haut de la page-->
+    <div id="goBackUp">
+      <!--Uitilisation du href pour que ça remonte en haut de la page automatiquement-->
+      <a href="#">
+        <img src="../assets/favicon/fleche.png" alt="Remonter en Haut" width="25" height="30" />
+      </a>
+    </div>
+
     <!--Logos pour les réseaux professionnels-->
     <div class="Networks">
       <a href="http://www.linkedin.com/in/adelinecanon" target="_blank">
@@ -10,6 +18,7 @@
         <img src="../assets/logos/signe-github.png" alt="Profil_GitHub" width="25" height="25" />
       </a>
     </div>
+
     <!--Date Dernière MàJ-->
     <div class="MaJ">
       <h5>Dernière mise à jour le <time datetime="2024-06-10">10 Juin 2024</time></h5>
@@ -26,10 +35,9 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Barlow', sans-serif;
+  font-family: 'Barlow';
   font-weight: 300;
   font-style: normal;
-  font-optical-sizing: auto;
 }
 
 footer {
@@ -44,6 +52,27 @@ footer {
   row-gap: 10px;
 }
 
+#goBackUp {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 80px;
+  height: 60px;
+  cursor: pointer;
+  display: flex;
+  z-index: 1000; /* au dessus des autres éléments */
+}
+
+#goBackUp img {
+  width: 100;
+  height: 100;
+}
+
+#goBackUp:hover img {
+  transform: scale(1.1); /* pour agrandir légérement au survol */
+  transition: transform 0.2s;
+}
+
 .Networks {
   display: flex;
   flex-wrap: wrap;
@@ -51,9 +80,5 @@ footer {
   justify-content: center;
   align-items: center;
   gap: 10px;
-}
-
-a:hover {
-  background-color: #aaaaaa;
 }
 </style>

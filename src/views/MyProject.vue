@@ -4,11 +4,18 @@
     <br />
     <div class="mes_projets">
       <div v-for="(project, index) in projects" :key="index" class="project">
-        <img :src="project.src" @click="openModal(project)" class="project-image" />
-        <figcaption>
-          {{ project.title }} <br />
-          {{ project.date }}
-        </figcaption>
+        <figure>
+          <img
+            :src="project.src"
+            @click="openModal(project)"
+            class="project-image"
+            :alt="project.title"
+          />
+          <figcaption>
+            {{ project.title }} <br />
+            {{ project.date }}
+          </figcaption>
+        </figure>
       </div>
       <Modal :is-open-modal="isModalOpen" :project="selectedProject" @close="closeModal" />
     </div>
@@ -95,7 +102,7 @@ document.addEventListener('keydown', handleEscape)
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Barlow', 'sans-serif';
+  font-family: 'Barlow';
 }
 
 section {
@@ -142,7 +149,7 @@ figcaption {
 
 .project-image:hover {
   transform: scale(1.05);
-  box-shadow: 12px 10px 0px 2px #aaaaaaad; /*Ombre en bas à droite*/
+  box-shadow: 12px 10px 0px 2px #aaaaaaad; /* Ombre en bas à droite */
 }
 
 .project h3 {
