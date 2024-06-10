@@ -79,7 +79,7 @@ function sendForm() {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Barlow', sans-serif;
+  font-family: 'Barlow', 'sans-serif';
   font-weight: 300;
   font-style: normal;
   font-optical-sizing: auto;
@@ -136,7 +136,6 @@ button {
   color: #ddd;
   margin-left: 435px;
   padding: 12px 150px;
-
   border-radius: 4px;
   cursor: pointer;
 }

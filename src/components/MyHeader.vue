@@ -74,6 +74,7 @@ section {
   justify-content: center;
   align-items: center;
 }
+
 nav {
   width: 1216px;
   display: flex;
@@ -105,7 +106,9 @@ li a {
   padding: 14px 16px;
   text-decoration: none;
 }
-li a:hover {
+
+li:hover {
   background-color: rgb(182, 180, 180);
+  border-bottom: 1px solid black;
 }
 </style>

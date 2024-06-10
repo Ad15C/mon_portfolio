@@ -5,6 +5,10 @@
     <div class="mes_projets">
       <div v-for="(project, index) in projects" :key="index" class="project">
         <img :src="project.src" @click="openModal(project)" class="project-image" />
+        <figcaption>
+          {{ project.title }} <br />
+          {{ project.date }}
+        </figcaption>
       </div>
       <Modal :is-open-modal="isModalOpen" :project="selectedProject" @close="closeModal" />
     </div>
@@ -31,7 +35,7 @@ const projects = ref([
 
   {
     id: 2,
-    src: 'public/cahier_charges.png',
+    src: 'public/cahier_des_charges.png',
     title: 'Cahier des Charges',
     date: 'Décembre 2023',
     description:
@@ -42,7 +46,7 @@ const projects = ref([
 
   {
     id: 3,
-    src: 'public/commentaire_dynamique.png',
+    src: 'public/commentaire_dynamique_img.png',
     title: 'Commentaire Dynamique',
     date: 'Février 2024',
     description: 'Réalisation de Commentaire Dynamique ',
@@ -59,14 +63,12 @@ let isModalOpen = ref(false)
 
 //Ouverture du Modal
 const openModal = (project) => {
-  selectedProject.value = project,
-  isModalOpen = true
+  ;(selectedProject.value = project), (isModalOpen = true)
 }
 
 //Fermeture du Modal
 const closeModal = () => {
-  selectedProject.value = project,
-  isModalOpen = false
+  ;(selectedProject.value = project), (isModalOpen = false)
 }
 
 //Fermeture en cliquant en dehors du modal
@@ -93,12 +95,13 @@ document.addEventListener('keydown', handleEscape)
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Barlow', sans-serif;
+  font-family: 'Barlow', 'sans-serif';
 }
 
 section {
   padding-top: 20px;
   padding-bottom: 20px;
+  height: 500px;
 }
 
 h3 {
@@ -107,11 +110,19 @@ h3 {
   margin-bottom: 20px;
 }
 
+figcaption {
+  padding-top: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
 .mes_projets {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 50px; /* Espace entre les projets */
+  align-items: center;
+  gap: 60px; /* Espace entre les projets */
 }
 
 .project {
@@ -122,7 +133,8 @@ h3 {
 }
 
 .project-image {
-  width: 100%;
+  width: 200px;
+  height: 270px;
   height: auto;
   cursor: pointer;
   transition: transform 0.3s;
@@ -130,6 +142,7 @@ h3 {
 
 .project-image:hover {
   transform: scale(1.05);
+  box-shadow: 12px 10px 0px 2px #aaaaaaad; /*Ombre en bas à droite*/
 }
 
 .project h3 {

@@ -2,8 +2,10 @@
   <div v-if="isOpenModal" class="modal">
     <div class="modal-content">
       <div class="modal_header">
+        <!--Croix pour fermer le modal-->
         <span class="close" @click="close">&times;</span>
       </div>
+
       <div class="modal_body">
         <!--Détail du modal-->
         <img :src="project.src" alt="Project Image" id="modalProject" />
@@ -31,8 +33,8 @@ const props = defineProps({
 
   project: {
     type: Object,
-    required: true,
-  },
+    required: true
+  }
 })
 
 //Emit permet à un composant de spécifier quels événements il émet ainsi que les arguments qu'il prend
@@ -42,7 +44,6 @@ const emit = defineEmits(['close'])
 function close() {
   emit('close')
 }
-
 
 //Gestionnaire d'événement pour télécharger le projet
 const handleDownload = () => {
@@ -61,7 +62,7 @@ const handleDownload = () => {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Barlow', sans-serif;
+  font-family: 'Barlow', 'sans-serif';
   font-weight: 300;
   font-style: normal;
   font-optical-sizing: auto;
@@ -121,16 +122,12 @@ const handleDownload = () => {
 }
 
 #downloadButton {
-  background-color: #007bff;
+  background-color: #172432;
   color: white;
   border: none;
   padding: 10px 20px;
   cursor: pointer;
   border-radius: 5px;
   transition: background-color 0.3s;
-}
-
-#downloadButton:hover {
-  background-color: #0056b3;
 }
 </style>
