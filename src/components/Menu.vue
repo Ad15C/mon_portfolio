@@ -8,11 +8,6 @@
         </RouterLink>
       </li>
       <li>
-        <RouterLink to="/APropos" class="nav_link">
-          <a href="About">A Propos</a>
-        </RouterLink>
-      </li>
-      <li>
         <RouterLink to="/MesProjets" class="nav_link">
           <a href="MyProject">Mes Projets</a>
         </RouterLink>

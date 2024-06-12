@@ -81,4 +81,8 @@ footer {
   align-items: center;
   gap: 10px;
 }
+
+.Networks a:hover {
+  background-color: #ddd;
+}
 </style>
