@@ -1,4 +1,5 @@
 <template>
+  <!--Formulaire-->
   <form id="myForm" @submit.prevent="sendForm">
     <h3>Pour toutes informations, remplissez le formulaire ci-dessous.</h3>
 
@@ -20,7 +21,7 @@
     <!--Bouton de Soumission-->
     <button type="submit" value="submit">Envoyer</button>
   </form>
-  <br />
+  <!--Fin du Formulaire-->
 </template>
 
 <script setup>

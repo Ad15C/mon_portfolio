@@ -1,4 +1,5 @@
 <template>
+  <!--Modal-->
   <div v-if="isOpenModal" class="modal">
     <div class="modal-content">
       <div class="modal_header">
@@ -6,14 +7,14 @@
         <span class="close" @click="close">&times;</span>
       </div>
 
+      <!--Détail du modal-->
       <div class="modal_body">
-        <!--Détail du modal-->
         <img :src="project.src" alt="Project Image" id="modalProject" />
-        <h3 id="projectName">{{ project.title }}</h3>
-        <p>{{ project.date }}</p>
+        <h3 id="projectName">{{ project.title }} - ( {{ project.date }} )</h3>
         <p>{{ project.description }}</p>
-        <p>{{ project.technologies }}</p>
+        <p>Technologies utilisées : {{ project.technologies }}</p>
       </div>
+
       <div class="modal_footer">
         <!--Bouton de téléchargement du projet dans le modal-->
         <button id="downloadButton" @click="handleDownload">Télécharger</button>
@@ -113,8 +114,13 @@ const handleDownload = () => {
 
 .modal_body h3 {
   margin-bottom: 10px;
+  text-decoration: underline; /* Soulignement du Titre du projet */
+  font-style: italic;
 }
 
+.modal_body p {
+  text-align: justify;
+}
 .modal_footer {
   text-align: center;
   margin-top: 20px;

@@ -35,7 +35,7 @@ const projects = ref([
     src: 'public/cv.png',
     title: 'CV',
     date: 'Décembre 2023',
-    description: 'Réalisation de CV ',
+    description: 'Réalisation Curriculum Vitae',
     technologies: 'HTML, CSS, GitHub, VSCode',
     downloadLink: 'https://github.com/Ad15C/Mon_cv.git'
   },
@@ -46,7 +46,7 @@ const projects = ref([
     title: 'Cahier des Charges',
     date: 'Décembre 2023',
     description:
-      'Cahier des Charges pour La Socketterie, souhaitant faire une refonte de son site internet et un bilan de la concurrence',
+      'Rédaction Cahier des Charges, pour La Socketterie, souhaitant effectuer une refonte de son site internet et un bilan de la concurrence',
     technologies: 'Word',
     downloadLink: 'public/cahier_des_charges.pdf'
   },
@@ -70,12 +70,14 @@ let isModalOpen = ref(false)
 
 //Ouverture du Modal
 const openModal = (project) => {
-  ;(selectedProject.value = project), (isModalOpen = true)
+  selectedProject.value = project,
+  isModalOpen = true
 }
 
 //Fermeture du Modal
 const closeModal = () => {
-  ;(selectedProject.value = project), (isModalOpen = false)
+  selectedProject.value = project,
+  isModalOpen = false
 }
 
 //Fermeture en cliquant en dehors du modal
