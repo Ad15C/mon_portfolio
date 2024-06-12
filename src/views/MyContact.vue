@@ -76,7 +76,6 @@ function sendForm() {
   font-family: 'Barlow';
   font-weight: 300;
   font-style: normal;
-  font-optical-sizing: auto;
 }
 
 form {

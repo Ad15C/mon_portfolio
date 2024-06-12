@@ -1,10 +1,9 @@
 <template>
   <header>
-    <section>
+    <section id="header">
       <img alt="logo" class="logo" src="../assets/logos/Logo_AC.png" />
       <h1>Bienvenue sur mon Portfolio</h1>
     </section>
-   
   </header>
 </template>
 
@@ -53,42 +52,5 @@ section {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-}
-
-nav {
-  width: 1216px;
-  display: flex;
-  flex-direction: row;
-  margin-top: 20px;
-}
-
-ul {
-  width: 1500px;
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-  background-color: #f2f2f2;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  font-size: 22px;
-}
-
-li {
-  float: left;
-}
-
-li a {
-  display: block;
-  color: #333;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-}
-
-li:hover {
-  background-color: rgb(182, 180, 180);
-  border-bottom: 1px solid black;
 }
 </style>
