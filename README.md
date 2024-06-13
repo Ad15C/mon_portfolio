@@ -85,7 +85,7 @@ De même, cela été l'occasion de montrer comment nous comptions concrétiser c
 
     1. Clonez le projet sur votre machine locale.
         - Pour cela, copiez l'adresse URL du projet GitHub.
-        - Ouvrez votre Terminla de système d'exploitation
+        - Ouvrez votre Terminal de système d'exploitation
         - Utilisez la commande 'cd' pour naviguer vers le répertoire où vous souhaitez cloner le référentiel
         (cd mon_portfolio)
         - Utilisez la commande git clone de l'URL
