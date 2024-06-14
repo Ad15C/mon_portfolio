@@ -3,7 +3,7 @@
   <section id="A_propos">
     <p>
       Je m'appelle Adeline Canon et j'aime tout ce qui se rapporte à la technologie, et suis également passsionnée de sport. <br>
-      Mon but est de vous permettre à réaliser vos projets, que ce soit un site web, une application mobile.<br />
+      Mon but est de vous permettre de réaliser tous vos projets, que ce soit un site web, une application mobile.<br />
       Je suis prête à relever les défis qui s'offrent à moi.
     </p>
     <br />
@@ -12,7 +12,7 @@
 
   <!--Section Projets-->
   <section id="Projets">
-    <h3>Ci-dessous, vous trouverez les derniers projets réalisés dernièrement:</h3>
+    <h3>Ci-dessous, vous trouverez les projets réalisés dernièrement:</h3>
     <br />
     <div class="mes_projets">
       <div v-for="(project, index) in projects" :key="index" class="project">
@@ -174,137 +174,4 @@ function sendForm() {
 </script>
 
 <style scoped>
-@import url('https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Barlow';
-  font-weight: 300;
-  font-style: normal;
-}
-
-section {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  align-content: center;
-  font-size: 16px;
-}
-
-h3 {
-  padding-left: 20px;
-  text-align: left;
-  margin-bottom: 20px;
-}
-
-figcaption {
-  padding-top: 10px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.mes_projets {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  gap: 60px; /* Espace entre les projets */
-}
-
-.project {
-  margin: 10px;
-  text-align: center;
-  flex: 1 1 200px; /* Flex-grow, flex-shrink, and flex-basis */
-  max-width: 200px;
-}
-
-.project-image {
-  width: 200px;
-  height: 270px;
-  height: auto;
-  cursor: pointer;
-  transition: transform 0.3s;
-}
-
-.project-image:hover {
-  transform: scale(1.05);
-  box-shadow: 12px 10px 0px 2px #aaaaaaad; /* Ombre en bas à droite */
-}
-
-.project h3 {
-  margin-top: 10px;
-}
-
-p {
-  padding-left: 20px;
-  padding-right: 20px;
-}
-
-form {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
-  border-radius: 5px;
-  background-color: #f2f2f2;
-  padding: 20px;
-}
-
-input[type='text'],
-select {
-  width: 100%;
-  padding: 12px 20px;
-  margin: 8px 0;
-  display: inline-block;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  box-sizing: border-box;
-}
-
-input[type='email'],
-select {
-  width: 100%;
-  padding: 12px 20px;
-  margin: 8px 0;
-  display: inline-block;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  box-sizing: border-box;
-}
-
-textarea {
-  height: 150px;
-  width: 100%;
-  padding: 12px 20px;
-  margin: 8px 0;
-  display: inline-block;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  box-sizing: border-box;
-}
-
-button {
-  display: inline-block;
-  background-color: #172432;
-  border: none;
-  color: #ddd;
-  margin-left: 435px;
-  padding: 12px 150px;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-a {
-  display: flex;
-  justify-content: right;
-}
-
-a:hover {
-  color: #172432;
-}
 </style>
