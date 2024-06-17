@@ -1,21 +1,15 @@
 <template>
   <!--Barre de navigation-->
-  <nav>
+  <nav class="menu">
     <ul class="nav_links">
       <li>
-        <RouterLink to="/" class="nav_link">
-          <a href="/">Accueil</a>
-        </RouterLink>
+        <RouterLink to="/" class="nav_link">Accueil</RouterLink>
       </li>
       <li>
-        <RouterLink to="/MesProjets" class="nav_link">
-          <a href="MyProject">Mes Projets</a>
-        </RouterLink>
+        <RouterLink to="/MesProjets" class="nav_link">Mes Projets</RouterLink>
       </li>
       <li>
-        <RouterLink to="/Contact" class="nav_link">
-          <a href="MyContact">Contact</a>
-        </RouterLink>
+        <RouterLink to="/Contact" class="nav_link">Contact</RouterLink>
       </li>
     </ul>
   </nav>
