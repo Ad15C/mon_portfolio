@@ -1,7 +1,7 @@
 <template>
   <!--Formulaire-->
   <form id="myForm" @submit.prevent="sendForm">
-    <h3>Pour toutes informations, remplissez le formulaire ci-dessous.</h3>
+    <h2>Pour toutes informations, remplissez le formulaire ci-dessous.</h2>
 
     <br /><br />
     <!--Champs du Formulaire-->
