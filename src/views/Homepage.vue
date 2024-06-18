@@ -4,7 +4,7 @@
     <div>
     <p>
       Je m'appelle Adeline Canon et j'aime tout ce qui se rapporte à la technologie, et suis également passsionnée de sport.
-      Mon but est de vous permettre de réaliser tous vos projets, que ce soit un site web, une application mobile.<br />
+      Mon but est de vous permettre de réaliser tous vos projets, que ce soit un site web, une application mobile.<br>
       Je suis prête à relever les défis qui s'offrent à moi.
     </p>
     <br />
