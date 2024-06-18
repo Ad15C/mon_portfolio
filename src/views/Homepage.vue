@@ -1,12 +1,14 @@
 <template>
   <!--Section A Propos-->
   <section id="A_propos">
+    <div>
     <p>
       Je m'appelle Adeline Canon et j'aime tout ce qui se rapporte à la technologie, et suis également passsionnée de sport. <br>
       Mon but est de vous permettre de réaliser tous vos projets, que ce soit un site web, une application mobile.<br />
       Je suis prête à relever les défis qui s'offrent à moi.
     </p>
     <br />
+    </div>
   </section>
   <!--Fin Section A Propos-->
 
@@ -35,6 +37,7 @@
   <!--Fin Section Projets-->
 
   <!--Formulaire de Contact-->
+  <div>
   <form id="myForm" @submit.prevent="sendForm">
     <h3>Pour toutes informations, remplissez le formulaire ci-dessous.</h3>
 
@@ -56,6 +59,7 @@
     <!--Bouton de Soumission-->
     <button type="submit" value="submit">Envoyer</button>
   </form>
+  </div>
   <!--Fin du Formulaire-->
 </template>
 
