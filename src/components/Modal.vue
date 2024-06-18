@@ -10,9 +10,9 @@
       <!--Détail du modal-->
       <div class="modal_body">
         <img :src="project.src" alt="Project Image" id="modalProject" />
-        <h3 id="projectName">{{ project.title }} - ( {{ project.date }} )</h3>
-        <p>{{ project.description }}</p>
-        <p>Technologies utilisées : {{ project.technologies }}</p>
+        <h4 id="projectName">{{ project.title }} - ( {{ project.date }} )</h4>
+        <h5>{{ project.description }}</h5>
+        <h6>Technologies utilisées : {{ project.technologies }}</h6>
       </div>
 
       <div class="modal_footer">
